@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import csv
 import hashlib
+import os
 import sys
 
 """
@@ -9,8 +10,9 @@ Standardized PAYEE field from CSV on stdin and write normalized records to stdou
 """
 
 mapping = {}
-for old, new in csv.reader(open('normalizations.csv')):
-    mapping[old] = new
+for year in (2009,2010):
+    for old, new, y in csv.reader(open(os.path.abspath('normalization_mapping-%s.csv' % year))):
+        mapping[old] = new
 
 OUT_FIELDS = "BIOGUIDE_ID,OFFICE,QUARTER,CATEGORY,DATE,PAYEE,PAYEE_NORM,START DATE,END DATE,PURPOSE,AMOUNT,YEAR,TRANSCODE,TRANSCODELONG,RECORDID,RECIP (orig.)".split(',')
 
@@ -34,7 +36,11 @@ for record in csv.DictReader(sys.stdin):
         
         uniques[hsh] = {"record": record, "dupes": 0}
         
-        amount = float(record['AMOUNT'] or 0)
+        amount = float(record['AMOUNT'].replace(',', '') or 0)
+        
+        if 'BIOGUIDE_ID' not in record and '' in record:
+            record['BIOGUIDE_ID'] = record['']
+            del record['']
         
         # normalize payee
         payee = record['PAYEE'].strip().upper()
