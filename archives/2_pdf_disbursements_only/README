@@ -1,0 +1,3 @@
+PDFs cut down from the original single volume output to be only the pages that cover House disbursements. Using a command like:
+
+pdftk 2010q1_singlevolume.pdf cat 10-3613 output disbursements-only.pdf
