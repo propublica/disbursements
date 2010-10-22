@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
-filename = ARGV.first
-bioguide_filename = "bioguide_ids.csv"
+input_file = ARGV.first
+output_file = "expenditures-updated.csv"
+bioguide_file = "bioguide_ids.csv"
 
-if filename.nil? or filename == ""
+if input_file.nil? or input_file == ""
   puts "Provide the filename of the disbursements CSV file you want to add the bioguide IDs to."
   exit
 end
@@ -18,7 +19,7 @@ rescue
   exit
 end
 
-[filename, bioguide_filename].each do |f|
+[input_file, bioguide_file].each do |f|
   unless File.exists?(f)
     puts "Couldn't locate #{f}. Place it in the same directory as this script."
     exit
@@ -28,7 +29,7 @@ end
 # Read through the bioguide ID CSV and create a hash of names to bioguide_ids
 
 legislators = {}
-FasterCSV.foreach(bioguide_filename) do |row|
+FasterCSV.foreach(bioguide_file) do |row|
   # key is name, value is bioguide_id
   legislators[row[1]] = row[0]
 end
@@ -36,12 +37,19 @@ end
 # open up a file for writing, and in it:
   # go through the expenditures CSV line by line and find the bioguide_id for each name and re-write it out
 
-FasterCSV.open("expenditures-updated.csv", "w") do |csv|
+
+FileUtils.rm(output_file) if File.exist? output_file
+FasterCSV.open(output_file, "w") do |csv|
   i = 0
   
-  FasterCSV.foreach(filename) do |row|
-    name = row[0]
-    row.unshift legislators[name]
+  FasterCSV.foreach(input_file) do |row|
+    if row[0] == "OFFICE" # header row
+      row.unshift "BIOGUIDE_ID"
+    else
+      name = row[0]
+      row.unshift legislators[name]
+    end
+    
     csv << row
     
     i += 1
@@ -51,4 +59,4 @@ FasterCSV.open("expenditures-updated.csv", "w") do |csv|
 end
 
 puts ""
-puts "Wrote out updated expenditure report to expenditures-updated.csv."
+puts "Wrote out updated expenditure report to #{output_file}."
