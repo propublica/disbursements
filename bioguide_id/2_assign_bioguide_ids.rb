@@ -6,11 +6,15 @@ if filename.nil? or filename == ""
   filename = "all-names.csv"
 end
 
+known_bioguide_ids = "bioguide_ids.csv"
+new_bioguide_ids = "new_bioguide_ids.csv"
+
 begin
   require 'fileutils'
   require 'rubygems'
   require 'sunlight'
   require 'fastercsv'
+  require 'active_support'
 rescue
   puts "Couldn't load dependencies. Try running two commands and try again:\n\nsudo gem install fastercsv\nsudo gem install sunlight"
   exit
@@ -25,9 +29,29 @@ end
 @@duplicates = 0
 Sunlight::Base.api_key = 'sunlight9'
 
+# index by name to known bioguide_id
+@@known_bioguide_ids = {}
+FasterCSV.foreach(known_bioguide_ids) do |row|
+  next if row[0] == 'bioguide_id' # skip header row
+  
+  if row[0] and row[0] != "" and row[1] and row[1] != ""# bioguide_id
+    @@known_bioguide_ids[row[1]] = {
+      :bioguide_id => row[0],
+      :name_confirm_from_sunlight => row[1],
+      :in_office => (row[2] and (row[2] == "true"))
+    }
+  end
+end
+
 
 def legislator_for_name(name)
   options = {}
+  
+  if @@known_bioguide_ids[name]
+    return @@known_bioguide_ids[name]
+  end
+  
+  puts "Couldn't find #{name} cached, checking with the Sunlight Labs Congress API..."
   
   # get rid of "HON." prefix and split on spaces
   name = name.gsub /^HON\.\s?/i, ''
@@ -160,19 +184,26 @@ FasterCSV.foreach(filename) do |row|
   if name =~ /HON\./
     names[name] = {}
     
-    if legislator = legislator_for_name(name)
-      names[name][:bioguide_id] = legislator.bioguide_id
-      names[name][:name_check] = name_for legislator
-      names[name][:in_office] = legislator.in_office
+    legislator = legislator_for_name(name)
+    if legislator
+      if legislator.is_a? Sunlight::Legislator
+        names[name][:bioguide_id] = legislator.bioguide_id
+        names[name][:name_confirm_from_sunlight] = name_for legislator
+        names[name][:in_office] = legislator.in_office
+      elsif legislator.is_a? Hash
+        names[name][:bioguide_id] = legislator[:bioguide_id]
+        names[name][:name_confirm_from_sunlight] = legislator[:name_confirm_from_sunlight]
+        names[name][:in_office] = legislator[:in_office]
+      end
     end
   end
 end
 
-FileUtils.rm("bioguide_ids.csv") if File.exist? "bioguide_ids.csv"
-FasterCSV.open("bioguide_ids.csv", "w") do |csv|
-  csv << ['bioguide_id', 'name', 'name_check', 'in_office']
+FileUtils.rm(new_bioguide_ids) if File.exist? new_bioguide_ids
+FasterCSV.open(new_bioguide_ids, "w") do |csv|
+  csv << ['bioguide_id', 'name_original', 'name_confirm_from_sunlight', 'in_office']
   names.each do |name, values|
-    csv << [values[:bioguide_id], name, values[:name_check], values[:in_office]]
+    csv << [values[:bioguide_id], name, values[:name_confirm_from_sunlight], values[:in_office]]
   end
 end
 
@@ -181,4 +212,4 @@ puts "Out of #{names.keys.size} names:"
 puts "#{@@misses} attempts failed to match a legislator entirely."
 puts "#{@@duplicates} attempts matched too many legislators."
 puts ""
-puts "Wrote names and bioguide IDs out to bioguide_ids.csv."
+puts "Wrote names and bioguide IDs out to #{new_bioguide_ids}."
