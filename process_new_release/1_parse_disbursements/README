@@ -1,0 +1,20 @@
+This script was used to convert the 2009 Q3 House Disbursement PDF into detail and summary CSV files.
+
+    Source PDF: http://disbursements.house.gov/
+    Resulting Data: http://www.sunlightfoundation.com/projects/2009/expenditures/
+
+It was originally authored by Luke Rosiak with improvements by James Turk for Sunlight Labs and is released into the public domain.
+
+Disclaimer: It was written quickly under deadline and likely contains a few bugs - patches welcome
+
+It expects a file (named in the disbursements_file variable below) created as the result of something like the following two operations:
+    
+    pdftk 2010q1_singlevolume.pdf cat 10-3613 output disbursements-only.pdf
+    
+    pdftotext -layout disbursements-only.pdf
+
+
+Update the:
+  * disbursements_file variable (input file, e.g. '2010q2-disbursements-only.txt')
+  * year (e.g. '2009', '2010')
+  * quarter (e.g. 'Q1', 'Q2') 
