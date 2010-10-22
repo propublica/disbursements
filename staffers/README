@@ -1,3 +1,1 @@
 This directory contains data, and scripts to compile this data, for a separate project, a searchable directory of House staffers.  The repository for that web app is separate, at http://github.com/sunlightlabs/staffers.
-
-Currently, this data is for 2009Q3 and 2009Q4 data only, and is not current for any data from 2010.
