@@ -10,19 +10,23 @@
 
     Disclaimer: It was written quickly under deadline and likely contains a few bugs - patches welcome
 
-    It expects a file "disbursments-only.txt" created as the result of something like the following two operations:
+    It expects a file (named in the disbursements_file variable below) created as the result of something like the following two operations:
        
        pdftk 2010q1_singlevolume.pdf cat 10-3613 output disbursements-only.pdf
        
        pdftotext -layout disbursements-only.pdf
 
 
-    Update the thisquarter variable below and concatenate the summary and detail files produced to the existing databases to build a comprehensive database over time.
-
+    Update the:
+      * disbursements_file variable (input file, e.g. '2010q2-disbursements-only.txt')
+      * year (e.g. '2009', '2010')
+      * quarter (e.g. 'Q1', 'Q2') 
 '''
 
-disbursements_file = 'disbursements-only.txt'
-thisquarter = '2010Q1'
+disbursements_file = '2010q1-disbursements-only.txt'
+year = '2010'
+quarter = 'Q1'
+thisquarter = year + quarter
 
 import csv, re, sys
 
@@ -35,11 +39,11 @@ def known_bad(line):
 def main():
     f = open(disbursements_file, "r")
 
-    fsummary = csv.writer(open("house-disburse-summary-2010-Q1.csv", "w"), quoting=csv.QUOTE_ALL)
+    fsummary = csv.writer(open("%s%s-house-disburse-summary.csv" % (year, quarter), "w"), quoting=csv.QUOTE_ALL)
     fsummary.writerow( ['OFFICE','YEAR','QUARTER','CATEGORY', 'YTD', 'AMOUNT'] )
-    fdetail = csv.writer(open("house-disburse-detail-2010-Q1.csv", "w"), quoting=csv.QUOTE_ALL)
+    fdetail = csv.writer(open("%s%s-house-disburse-detail.csv" % (year, quarter), "w"), quoting=csv.QUOTE_ALL)
     fdetail.writerow( ['OFFICE','QUARTER','CATEGORY','DATE','PAYEE','START DATE','END DATE','PURPOSE','AMOUNT','YEAR', 'TRANSCODE','TRANSCODELONG','RECORDID','RECIP (orig.)'] )
-    trashcan = open('trashlines.txt','w')
+    trashcan = open('%s%s-trashlines.txt' % (year, quarter),'w')
 
     cats = ['FRANKED MAIL', 'PERSONNEL COMPENSATION', 'PERSONNEL BENEFITS', 'TRAVEL', 'RENT, COMMUNICATION, UTILITIES', 'PRINTING AND REPRODUCTION', 'OTHER SERVICES', 'SUPPLIES AND MATERIALS', 'EQUIPMENT', 'TRANSPORTATION OF THINGS']
 
