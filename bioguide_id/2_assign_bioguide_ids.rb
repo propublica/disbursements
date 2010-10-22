@@ -1,13 +1,12 @@
 #!/usr/bin/env ruby
 
-filename = ARGV.first
+names_file = ARGV.first
 
-if filename.nil? or filename == ""
-  filename = "all-names.csv"
+if names_file.nil? or names_file == ""
+  names_file = "all-names.csv"
 end
 
-known_bioguide_ids = "bioguide_ids.csv"
-new_bioguide_ids = "new_bioguide_ids.csv"
+bioguide_file = "bioguide_ids.csv"
 
 begin
   require 'fileutils'
@@ -20,8 +19,8 @@ rescue
   exit
 end
 
-unless File.exists?(filename)
-  puts "Couldn't locate #{filename}. Place it in the same directory as this script."
+unless File.exists?(names_file)
+  puts "Couldn't locate #{names_file}. Place it in the same directory as this script."
   exit
 end
 
@@ -31,7 +30,7 @@ Sunlight::Base.api_key = 'sunlight9'
 
 # index by name to known bioguide_id
 @@known_bioguide_ids = {}
-FasterCSV.foreach(known_bioguide_ids) do |row|
+FasterCSV.foreach(bioguide_file) do |row|
   next if row[0] == 'bioguide_id' # skip header row
   
   if row[0] and row[0] != "" and row[1] and row[1] != ""# bioguide_id
@@ -174,34 +173,36 @@ def name_for(legislator)
 end
 
 
-puts "Trying to match up names in #{filename}..."
+puts "Trying to match up names in #{names_file}..."
 
 names = {}
-FasterCSV.foreach(filename) do |row|
+FasterCSV.foreach(names_file) do |row|
   name = row[0]
   
   # Members' names will always start with "HON."
   if name =~ /HON\./
-    names[name] = {}
     
     legislator = legislator_for_name(name)
     if legislator
       if legislator.is_a? Sunlight::Legislator
-        names[name][:bioguide_id] = legislator.bioguide_id
-        names[name][:name_confirm_from_sunlight] = name_for legislator
-        names[name][:in_office] = legislator.in_office
+        names[name] = {
+          :bioguide_id => legislator.bioguide_id,
+          :name_confirm_from_sunlight => name_for(legislator),
+          :in_office => legislator.in_office
+        }
       elsif legislator.is_a? Hash
-        names[name][:bioguide_id] = legislator[:bioguide_id]
-        names[name][:name_confirm_from_sunlight] = legislator[:name_confirm_from_sunlight]
-        names[name][:in_office] = legislator[:in_office]
+        # do nothing, we have it in bioguide_ids.csv already
+        
+        # names[name][:bioguide_id] = legislator[:bioguide_id]
+        # names[name][:name_confirm_from_sunlight] = legislator[:name_confirm_from_sunlight]
+        # names[name][:in_office] = legislator[:in_office]
       end
     end
   end
 end
 
-FileUtils.rm(new_bioguide_ids) if File.exist? new_bioguide_ids
-FasterCSV.open(new_bioguide_ids, "w") do |csv|
-  csv << ['bioguide_id', 'name_original', 'name_confirm_from_sunlight', 'in_office']
+
+FasterCSV.open(bioguide_file, "a") do |csv|
   names.each do |name, values|
     csv << [values[:bioguide_id], name, values[:name_confirm_from_sunlight], values[:in_office]]
   end
@@ -212,4 +213,4 @@ puts "Out of #{names.keys.size} names:"
 puts "#{@@misses} attempts failed to match a legislator entirely."
 puts "#{@@duplicates} attempts matched too many legislators."
 puts ""
-puts "Wrote names and bioguide IDs out to #{new_bioguide_ids}."
+puts "Appended any new names and bioguide IDs on to #{bioguide_file}."

@@ -38,13 +38,12 @@ Mary Bono Mack is mistaken for Connie Mack.  There's no easy way to correct this
 
    This will use the existing bioguide_ids.csv as a cache of names it's seen before.
    
-4) This will produce a file called new_bioguide_ids.csv, containing a row with every legislator's name, a bioguide ID,  and then two fields to help verify the work. The first (under the heading "name_confirm_from_sunlight") is the full standardized name of the legislator, including their nickname, of the legislator that the script believed was the match.  The second is whether or not the legislator is currently in office ("TRUE") or not in office ("FALSE").
+4) This will update bioguide_ids.csv, containing a row with every legislator's name, a bioguide ID,  and then two fields to help verify the work. The first (under the heading "name_confirm_from_sunlight") is the full standardized name of the legislator, including their nickname, of the legislator that the script believed was the match.  The second is whether or not the legislator is currently in office ("TRUE") or not in office ("FALSE").
    
-   You need to look over this file and fill in the missing bioguide IDs for rows missing them.  The output of the prior script should have said how many missing bioguide IDs there are.
+   You need to look over this file and fill in the missing bioguide IDs for rows missing them.  They should be at the bottom. The output of the prior script should have said how many missing bioguide IDs there are.
    
    You should also look for mistakes, such as if the two name columns obviously don't match, and replace the bioguide IDs manually.  Look in the "Known Mistakes" section above for any that you should expect to see.
 
-   Once you've filled in any gaps, and you have an improved set of bioguide_ids, delete the existing bioguide_ids.csv and rename new_bioguide_ids.csv to be its replacement. Commit it to the repository.
    
 5) Run this command in the terminal:
 
