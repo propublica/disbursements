@@ -1,0 +1,7 @@
+This small script combines multiple CSVs into one CSV. Use it on multiple CSVs of the same type (detail or summary) from different quarters, to combine them into one master file. This file will be suitable for archive folder #5.
+
+Run with "./combiner.rb [csv1] [csv2] [csv3] ..."
+
+You need to give at least 2 CSVs.  It appends each CSV to the first one, omitting the header rows of each CSV except for the first one. (In other words, the final header row is the header row from the first file.)
+
+It'll output to "combined-[csv1]", where [csv1] is the filename of the first CSV given.
