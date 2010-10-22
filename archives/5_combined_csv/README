@@ -1,0 +1,1 @@
+These are the detail and summary CSVs from each processed quarter, appended into one master detail and summary file, using /process_new_release/3_combiner/combiner.rb.
