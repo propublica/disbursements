@@ -1,1 +1,18 @@
 This directory contains data, and scripts to compile this data, for a separate project, a searchable directory of House staffers.  The repository for that web app is separate, at http://github.com/sunlightlabs/staffers.
+
+Process:
+
+1) Take the disbursements detail file for *new quarters only* (so usually this will be the most recent quarter), and run it through 1_positions.rb. 
+
+  ./1_positions.rb [details-filename.csv]
+
+This will blindly append *all* new staff records from the details file (where the category is "PERSONNEL COMPENSATION") to positions.csv.
+
+2) Run 2_staffers.rb. This will extract all new unique staffer names from positions.csv (that don't yet appear in staffers.csv), and append them to staffers.csv.
+
+3) Run 3_offices.rb. This will extract all new unique office names from positions.csv (that don't yet appear in offices.csv, and aren't member offices), and append them to offices.csv.
+
+4) Run 4_titles.rb. This will extract all new unique titles from positions.csv (that don't yet appear in titles.csv), and append them to titles.csv.
+
+
+All four CSV files (located in the data folder) are used in the staffer directory import process.
