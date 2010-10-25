@@ -1,5 +1,6 @@
 *.txt
 /*.pdf
 /*.csv
+/staffers/*.csv
 /bioguide_id/all-names.csv
 /process_new_release/3_combiner/*.csv
