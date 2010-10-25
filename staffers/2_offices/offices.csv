@@ -1,509 +1,67 @@
-"BIOGUIDE_ID","COMMITTEE_ID","OFFICE NAME (ORIGINAL)","OFFICE NAME (STANDARD)","OFFICE PHONE","OFFICE LOCATION","OFFICE ROOM NUMBER"
-"D000600",,,"Rep. Mario Diaz-Balart","202-225-2778","Cannon",328
-"D000327",,,"Rep. Norm Dicks","202-225-5916","Rayburn",2467
-"D000355",,,"Rep. John Dingell","202-225-4071","Rayburn",2328
-"D000399",,,"Rep. Lloyd Doggett","202-225-4865","Cannon",201
-"D000482",,,"Rep. Mike Doyle Jr.","202-225-2135","Cannon",401
-"D000492",,,"Rep. David Dreier","202-225-2305","Cannon",233
-"E000290",,,"Rep. Donna Edwards","202-225-8699","Cannon",318
-"E000179",,,"Rep. Eliot Engel","202-225-2464","Rayburn",2161
-"F000339",,,"Rep. Barney Frank","202-225-5931","Rayburn",2252
-"F000448",,,"Rep. Trent Franks","202-225-4576","Rayburn",2435
-"G000550",,,"Rep. Phil Gingrey","202-225-2931","Cannon",119
-"H001042",,,"Rep. Mazie Hirono","202 225-4906","Longworth",1524
-"H000712",,,"Rep. Tim Holden","202-225-5546","Rayburn",2417
-"I000057",,,"Rep. Steve Israel","202-225-3335","Rayburn",2457
-"J000290",,,"Rep. Lynn Jenkins","202-225-6601","Cannon",130
-"K000210",,,"Rep. Pete King","202-225-7896","Cannon",339
-"K000362",,,"Rep. Steve King","202-225-4426","Longworth",1131
-"K000360",,,"Rep. Mark Kirk","202-225-4835","Longworth",1030
-"L000560",,,"Rep. Rick Larsen","202-225-2605","Cannon",108
-"L000557",,,"Rep. John Larson","202-225-2265","Cannon",106
-"L000274",,,"Rep. Jerry Lewis","202-225-5861","Rayburn",2112
-"L000397",,,"Rep. Zoe Lofgren","202-225-3072","Cannon",102
-"L000480",,,"Rep. Nita Lowey","202-225-6506","Rayburn",2329
-"L000491",,,"Rep. Frank Lucas","202-225-5565","Rayburn",2311
-"L000570",,,"Rep. Ben Lujan Jr.","202-225-6190","Cannon",502
-"M001163",,,"Rep. Doris Matsui","202-225-7163","Cannon",222
-"M001120",,,"Rep. Jack Murtha","202-225-2065","Rayburn",2423
-"N000015",,,"Rep. Richard Neal","202-225-5601","Rayburn",2208
-"N000181",,,"Rep. Devin Nunes","202-225-2523","Longworth",1013
-"N000183",,,"Rep. Glenn Nye III","202-225-4215","Cannon",116
-"O000169",,,"Rep. Bill Owens","202-225-4611","Rayburn",2366
-"P000583",,,"Rep. Ron Paul","202-225-2831","Cannon",203
-"P000594",,,"Rep. Erik Paulsen","202-225-2871","Cannon",126
-"P000197",,,"Rep. Nancy Pelosi","202-225-4965","Cannon",235
-"P000587",,,"Rep. Mike Pence","202-225-3021","Longworth",1431
-"P000593",,,"Rep. Ed Perlmutter","202-225-2645","Cannon",415
-"P000598",,,"Rep. Jared Polis","202-225-2161","Cannon",501
-"P000523",,,"Rep. David Price","202-225-1784","Rayburn",2162
-"P000591",,,"Rep. Tom Price","202-225-4501","Cannon",424
-"P000586",,,"Rep. Adam Putnam","202-225-1252","Cannon",442
-"Q000023",,,"Rep. Mike Quigley","202-225-4061","Longworth",1319
-"R000572",,,"Rep. Mike Rogers","202-225-4872","Cannon",133
-"R000583",,,"Rep. Tom Rooney","202-225-5792","Longworth",1529
-"R000580",,,"Rep. Peter Roskam","202-225-4561","Cannon",507
-"R000487",,,"Rep. Ed Royce","202-225-4111","Rayburn",2185
-"R000515",,,"Rep. Bobby Rush","202-225-4372","Rayburn",2416
-"R000570",,,"Rep. Paul Ryan","202-225-3031","Longworth",1113
-"R000577",,,"Rep. Tim Ryan","202-225-5261","Longworth",1421
-"S001177",,,"Del. Gregorio Sablan","202-225-2646","Cannon",423
-"S001158",,,"Rep. John Salazar","202-225-4761","Cannon",326
-"S001156",,,"Rep. Linda Sanchez","202-225-6676","Longworth",1222
-"S001164",,,"Rep. Jean Schmidt","202-225-3164","Cannon",418
-"T000459",,,"Rep. Lee Terry","202-225-4155","Rayburn",2331
-"T000193",,,"Rep. Bennie Thompson","202-225-5876","Rayburn",2432
-"T000260",,,"Rep. Todd Tiahrt","202-225-6216","Rayburn",2441
-"T000462",,,"Rep. Pat Tiberi","202-225-5355","Cannon",113
-"T000469",,,"Rep. Paul Tonko","202-225-5076","Cannon",128
-"W000672",,,"Rep. Frank Wolf","202-225-5136","Cannon",241
-,,"OFFICE OF FINANCE","Office of Finance","(202) 225-7474","Cannon House Office Building",263
-,,"CLERK OF THE HOUSE","Clerk of the House","(202) 225-7000","Capitol","H154"
-,"HSAG","COMMITTEE ON AGRICULTURE","House Committee on Agriculture","(202) 225-2171"," Longworth House Office Building",1301
-,"HSAP","COMMITTEE ON APPROPRIATIONS","House Committee on Appropriations","(202) 225-2771","Capitol","H-218"
-,"HSAS","ARMED SERVICES COMMITTEE","House Committee on Armed Services","(202) 225-4151","Rayburn House Office Building",2120
-,"HSBU","COMMITTEE ON BUDGET","House Committee on the Budget","(202) 226-7200","Cannon House Office Building",207
-,"HSED","EDUCATION AND LABOR","House Committee on Education and Labor","(202) 225-3725","Rayburn House Office Building",2181
-,"HSIF","COMMITTEE ON ENERGY & COMMERCE","House Committee on Energy and Commerce","(202) 225-2927","Rayburn House Office Building",2125
-,"HSBA","COMMITTEE ON FINANCIAL SERVICE","House Committee on Financial Services","(202) 225-4247","Rayburn House Office Building",2129
-,"HSFA","COMMITTEE ON FOREIGN AFFAIRS","House Committee on Foreign Affairs","(202) 225-5021","Rayburn House Office Building",2170
-,"HSHM","HOMELAND SECURITY","House Committee on Homeland Security","(202) 226-2616","Ford House Office Building",176
-,"HSHA","HOUSE ADMINISTRATION","House Committee on House Administration","(202) 225-2061","Longworth House Office Building",1309
-,"HSII","COMMITTEE ON NATURAL RESOURCES","House Committee on Natural Resources","(202) 225-6065","Longworth House Office Building",1324
-,"HSGO","OVERSIGHT & GOVERNMENT REFORM","House Committee on Oversight and Government Reform","(202) 225-5051","Rayburn House Office Building",2157
-,"HSRU","COMMITTEE ON RULES","House Committee on Rules","(202) 225-9091","Capitol","H-312"
-,"HSSY","COMM ON SCIENCE AND TECHNOLOGY","House Committee on Science and Technology","(202) 225-6375","Rayburn House Office Building",2321
-,"HSSM","COMMITTEE ON SMALL BUSINESS","House Committee on Small Business","(202) 225-4038","Rayburn House Office Building",2361
-,"HSSO","STANDARDS OF OFFICIAL CONDUCT","House Committee on Standards of Official Conduct","(202) 225-7103","Capitol","HT-2"
-,"HSJU","COMMITTEE ON JUDICIARY","House Committee on the Judiciary","(202) 225-3951","Rayburn House Office Building",2138
-,"HSPW","TRANSPORTATION-INFRASTRUCTURE","House Committee on Transportation and Infrastructure","(202) 225-4472","Rayburn House Office Building",2165
-,"HSVR","VETERANSâ€™ AFFAIRS","House Committee on Veterans' Affairs ","(202) 225-9756","Cannon House Office Building",335
-,"HSWM","COMMITTEE ON WAYS AND MEANS","House Committee on Ways and Means","(202) 225-3625","Longworth House Office Building",1102
-,,"DEMOCRATIC CAUCUS","Democratic Caucus","(202) 225-1400","Cannon House Office Building","202A"
-,,"DEMOCRATIC STEERING AND POLICY","Democratic Steering and Policy Committee","(202) 225-0100","Capitol","H232"
-,,"HOUSE CHILD CARE CENTER","House Child Care Center","(202) 225-9684","Ford House Office Building","H2-147"
-,"HSIG","INTELLIGENCE","House Permanent Select Committee on Intelligence","(202) 225-7690","Capitol Visitor Center","HVC-304"
-,"HSGW","ENERGY INDEP & GLOBAL WARMING","House Select Committee on Energy Independence and Global Warming","(202) 225-4012","Longworth House Office Building","B243 "
-,,"INTERPARLIAMENTARY AFFAIRS","Interparliamentary Affairs","(202) 226-1766","Capitol","HB28"
-,"JSTX","JOINT COMMMITTEE ON TAXATION","Joint Committee on Taxation","(202) 225‑3621","Longworth House Office Building",1015
-,,"LAW REVISION COUNSEL","Law Revision Counsel","(202) 226-2411","Ford House Office Building","H2-308"
-,,"LEGISLATIVE COUNSEL","Legislative Counsel","(202) 225-6060","Cannon House Office Building",136
-,,"OFFICE OF CONGRESSIONAL ETHICS","Office of Congressional Ethics","(202) 225-9739","Longworth House Office Building",1017
-,,"OEPPO","Office of Emergency Planning, Preparedness and Operations","(202) 226-0950","Ford House Office Building","H2-192"
-,,"OFFICE OF THE CHAPLAIN","Office of the Chaplain","(202) 225-2509","Capitol","HB25"
-,,"OFFICE OF GENERAL COUNSEL","Office of the General Counsel","(202) 225-9700","Cannon House Office Building",219
-,,"OFFICE OF THE HISTORIAN","Office of the Historian","(202) 226-5525","Cannon House Office Building","B56"
-,,"OFFICE OF INSPECTOR GENERAL","Office of the Inspector General","(202) 226-1250","Ford House Office Building","H2-386"
-,,"OFFICE OF THE MAJORITY LEADER","Office of the Majority Leader","(202) 225-3130","Capitol","H107"
-,,"OFFICE OF THE MAJORITY WHIP","Office of the Majority Whip","(202) 226-3210","Capitol","H329"
-,,"OFFICE OF THE MINORITY LEADER","Office of the Minority Leader","(202) 225-4000","Capitol","H204"
-,,"OFFICE OF THE MINORITY WHIP","Office of the Minority Whip","(202) 225-0197","Capitol","H307"
-,,"OFFICE OF THE PARLIAMENTARIAN","Office of the Parliamentarian","(202) 225-7373","Capitol","H209"
-,,"OFFICE OF THE PARLIAMENTARIAN","Office of the Parlimentarian","(202) 225-7373","Capitol","H209"
-,,"OFFICE OF THE SPEAKER","Office of the Speaker","(202) 225-0100","Capitol","H232"
-,,"REPUBLICAN CONFERENCE","Republican Conference","(202) 225-5107","Rayburn House Office Building",1420
-,,"REPUBLICAN POLICY COMMITTEE","Republican Policy Committee","(202) 225-6168","Cannon House Office Building","B58"
-,,"SERGEANT AT ARMS","Sergeant at Arms","(202) 225-2456","Capitol","H124"
-,,"LEGISLATIVE FLOOR ACTIVITIES",,,,
-,,"RC-TRAINING & PROGRAM DEVEL.",,,,
-,,"DS-TRAINING & PROGRAM DEVEL.",,,,
-,,"CLOAKROOM PERSONNEL - MAJ",,,,
-,,"CLOAKROOM PERSONNEL - MIN",,,,
-,,"COMPILATION OF PRECEDENTS",,,,
-,,"TECHNICAL ASSISTANTS",,,,
-,,"FORMER SPEAKER HASTERT",,,,
-,,"HOUSE INFORMATION RESOURCES",,,,
-,,"19TH DISTRICT OF FLORIDA",,,,
-,,"OTHER ADMINISTRATION",,,,
-,,"GOVERNMENT CONTRIBUTIONS",,,,
-,,"REPUBLICAN STEERING COMMITTEE",,,,
-,,"CHIEF ADMINISTRATIVE OFFICER",,,,
-,,"CAO ADVANCED BUSINESS SOLUTION",,,,
-,,"CAO OPERATIONS MANAGEMENT",,,,
-,,"COMMUNICATIONS",,,,
-,,"COMM ON VOTING IRREG-AUG2 2007",,,,
-,,"MINORITY EMPLOYEES",,,,
-"A000014",,,"Rep. Neil Abercrombie","202-225-2726","Longworth",1502
-"A000022",,,"Rep. Gary Ackerman","202-225-2601","Rayburn",2243
-"A000055",,,"Rep. Robert Aderholt","202-225-4876","Longworth",1433
-"A000364",,,"Rep. John Adler","202-225-4765","Longworth",1223
-"A000358",,,"Rep. W. Todd Akin","202-225-2561","Cannon",117
-"A000361",,,"Rep. Rodney Alexander","202-225-8490","Cannon",316
-"A000362",,,"Rep. Jason Altmire","202-225-2565","Cannon",332
-"A000210",,,"Rep. Rob Andrews","202-225-6501","Rayburn",2265
-"A000363",,,"Rep. Michael Arcuri","202-225-3665","Cannon",127
-"A000365",,,"Rep. Steve Austria","202-225-4324","Longworth",1641
-"B001234",,,"Rep. Joe Baca","202-225-6161","Rayburn",2245
-"B001256",,,"Rep. Michele Bachmann","202-225-2331","Cannon",107
-"B000013",,,"Rep. Spencer Bachus","202-225-4921","Rayburn",2246
-"B001229",,,"Rep. Brian Baird","202-225-3536","Rayburn",2350
-"B001230",,,"Rep. Tammy Baldwin","202-225-2906","Rayburn",2446
-"B001252",,,"Rep. John Barrow","202-225-2823","Cannon",213
-"B000208",,,"Rep. Roscoe Bartlett","202-225-2721","Rayburn",2412
-"B000213",,,"Rep. Joe Barton","202-225-2002","Rayburn",2109
-"B001253",,,"Rep. Melissa Bean","202-225-3711","Cannon",432
-"B000287",,,"Rep. Xavier Becerra","202-225-6235","Longworth",1119
-"B001231",,,"Rep. Shelley Berkley","202-225-5965","Cannon",405
-"B000410",,,"Rep. Howard Berman","202-225-4695","Rayburn",2221
-"B000420",,,"Rep. Marion Berry","202-225-4076","Rayburn",2305
-"B001232",,,"Rep. Judy Biggert","202-225-3515","Longworth",1034
-"B000461",,,"Rep. Brian Bilbray","202-225-0508","Rayburn",2348
-"B001257",,,"Rep. Gus Bilirakis","202-225-5755","Longworth",1124
-"B000490",,,"Rep. Sanford Bishop Jr.","202-225-3631","Rayburn",2429
-"B001250",,,"Rep. Rob Bishop","202-225-0453","Cannon",123
-"B001243",,,"Rep. Marsha Blackburn","202-225-2811","Cannon",217
-"B000574",,,"Rep. Earl Blumenauer","202-225-4811","Rayburn",2267
-"B000575",,,"Rep. Roy Blunt","202-225-6536","Rayburn",2229
-"B001263",,,"Rep. John Boccieri","202-225-3876","Longworth",1516
-"B000589",,,"Rep. John Boehner","202-225-6205","Longworth",1011
-"B001244",,,"Rep. Jo Bonner Jr.","202-225-4931","Rayburn",2236
-"B001228",,,"Rep. Mary Bono Mack","202-225-5330","Cannon",104
-"B001236",,,"Rep. John Boozman","202-225-4301","Longworth",1519
-"B001245",,,"Del. Madeline Bordallo","202-225-1188","Cannon",427
-"B001254",,,"Rep. Dan Boren","202-225-2701","Cannon",216
-"B000652",,,"Rep. Leonard Boswell","202-225-3806","Longworth",1427
-"B000657",,,"Rep. Rick Boucher","202-225-3861","Rayburn",2187
-"B001255",,,"Rep. Charles Boustany Jr.","202-225-2031","Longworth",1117
-"B000716",,,"Rep. Allen Boyd Jr.","202-225-5235","Longworth",1227
-"B000755",,,"Rep. Kevin Brady","202-225-4901","Cannon",301
-"B001227",,,"Rep. Bob Brady","202-225-4731","Cannon",206
-"B001259",,,"Rep. Bruce Braley","202-225-2911","Longworth",1019
-"B001264",,,"Rep. Bobby Bright","202-225-2901","Longworth",1205
-"B001262",,,"Rep. Paul Broun","202-225-4101","Cannon",325
-"B000911",,,"Rep. Corrine Brown","202-225-0123","Rayburn",2336
-"B001235",,,"Rep. Henry Brown Jr.","202-225-3176","Cannon",103
-"B001247",,,"Rep. Ginny Brown-Waite","202-225-1002","Cannon",414
-"B001260",,,"Rep. Vern Buchanan","202-225-5015","Cannon",218
-"B001248",,,"Rep. Michael Burgess","202-225-7772","Cannon",229
-"B001149",,,"Rep. Dan Burton","202-225-2276","Rayburn",2308
-"B001251",,,"Rep. G.K. Butterfield Jr.","202-225-3101","Cannon",413
-"B001203",,,"Rep. Steve Buyer","202-225-5037","Rayburn",2230
-"C000059",,,"Rep. Ken Calvert","202-225-1986","Rayburn",2201
-"C000071",,,"Rep. Dave Camp","202-225-3561","Cannon",341
-"C001064",,,"Rep. John Campbell III","202-225-5611","Longworth",1507
-"C001046",,,"Rep. Eric Cantor","202-225-2815","Cannon",329
-"C001079",,,"Rep. Joseph Cao","202-225-6636","Rayburn",2113
-"C001047",,,"Rep. Shelley Capito","202-225-2711","Rayburn",2443
-"C001036",,,"Rep. Lois Capps","202-225-3601","Longworth",1110
-"C001037",,,"Rep. Mike Capuano","202-225-5111","Longworth",1414
-"C001050",,,"Rep. Dennis Cardoza","202-225-6131","Longworth",1224
-"C001060",,,"Rep. Russ Carnahan","202-225-2671","Longworth",1710
-"C001065",,,"Rep. Chris Carney","202-225-3731","Cannon",416
-"C001072",,,"Rep. Andre Carson","202-225-4011","Cannon",425
-"C001051",,,"Rep. John Carter","202-225-3864","Cannon",409
-"C001075",,,"Rep. Bill Cassidy","202-225-3901","Cannon",506
-"C000243",,,"Rep. Michael Castle","202-225-4165","Longworth",1233
-"C001066",,,"Rep. Kathy Castor","202-225-3376","Cannon",317
-"C001076",,,"Rep. Jason Chaffetz","202-225-7751","Longworth",1032
-"C001058",,,"Rep. Ben Chandler III","202-225-4706","Longworth",1504
-"C001074",,,"Rep. Travis Childers","202-225-4306","Longworth",1708
-"C000380",,,"Del. Donna Christensen","202-225-1790","Longworth",1510
-"C001080",,,"Rep. Judy Chu","202-225-5464","Rayburn",2421
-"C001067",,,"Rep. Yvette Clarke","202-225-6231","Longworth",1029
-"C001049",,,"Rep. Lacy Clay Jr.","202-225-2406","Rayburn",2418
-"C001061",,,"Rep. Emanuel Cleaver II","202-225-4535","Longworth",1027
-"C000537",,,"Rep. Jim Clyburn","202-225-3315","Rayburn",2135
-"C000556",,,"Rep. Howard Coble","202-225-3065","Rayburn",2468
-"C001077",,,"Rep. Mike Coffman","202-225-7882","Longworth",1508
-"C001068",,,"Rep. Steve Cohen","202-225-3265","Longworth",1005
-"C001053",,,"Rep. Tom Cole","202-225-6165","Rayburn",2458
-"C001062",,,"Rep. Mike Conaway","202-225-3605","Longworth",1527
-"C001078",,,"Rep. Gerry Connolly","202-225-1492","Cannon",327
-"C000714",,,"Rep. John Conyers Jr.","202-225-5126","Rayburn",2426
-"C000754",,,"Rep. Jim Cooper","202-225-4311","Longworth",1536
-"C001059",,,"Rep. Jim Costa","202-225-3341","Longworth",1314
-"C000794",,,"Rep. Jerry Costello","202-225-5661","Rayburn",2408
-"C001069",,,"Rep. Joe Courtney","202-225-2076","Cannon",215
-"C000868",,,"Rep. Bud Cramer",,,
-"C001045",,,"Rep. Ander Crenshaw","202-225-2501","Cannon",440
-"C001038",,,"Rep. Joe Crowley","202-225-3965","Rayburn",2404
-"C001063",,,"Rep. Henry Cuellar","202-225-1640","Cannon",336
-"C001048",,,"Rep. John Culberson","202-225-2571","Longworth",1514
-"C000984",,,"Rep. Elijah Cummings","202-225-4741","Rayburn",2235
-"D000608",,,"Rep. Kathy Dahlkemper","202-225-5406","Cannon",516
-"D000096",,,"Rep. Danny Davis","202-225-5006","Rayburn",2159
-"D000599",,,"Rep. Lincoln Davis","202-225-6831","Cannon",410
-"D000598",,,"Rep. Susan Davis","202-225-2040","Longworth",1526
-"D000602",,,"Rep. Artur Davis","202-225-2665","Cannon",208
-"D000603",,,"Rep. Geoff Davis","202-225-3465","Longworth",1108
-"D000168",,,"Rep. Nathan Deal","202-225-5211","Rayburn",2133
-"D000191",,,"Rep. Peter DeFazio","202-225-6416","Rayburn",2134
-"D000197",,,"Rep. Diana DeGette","202-225-4431","Rayburn",2335
-"D000210",,,"Rep. Bill Delahunt","202-225-3111","Rayburn",2454
-"D000216",,,"Rep. Rosa DeLauro","202-225-3661","Rayburn",2413
-"D000604",,,"Rep. Charles Dent","202-225-6411","Longworth",1009
-"D000299",,,"Rep. Lincoln Diaz-Balart","202-225-4211","Rayburn",2244
-"D000607",,,"Rep. Joe Donnelly Sr.","202-225-3915","Longworth",1530
-"D000609",,,"Rep. Steve Driehaus","202-225-2216","Cannon",408
-"D000533",,,"Rep. John Duncan Jr.","202-225-5435","Rayburn",2207
-"E000063",,,"Rep. Chet Edwards","202-225-6105","Rayburn",2369
-"E000092",,,"Rep. Vern Ehlers","202-225-3831","Rayburn",2182
-"E000288",,,"Rep. Keith Ellison","202-225-4755","Longworth",1122
-"E000289",,,"Rep. Brad Ellsworth","202-225-4636","Cannon",513
-"E000172",,,"Rep. Jo Ann Emerson","202-225-4404","Rayburn",2440
-"E000215",,,"Rep. Anna Eshoo","202-225-8104","Cannon",205
-"E000226",,,"Rep. Bob Etheridge","202-225-4531","Longworth",1533
-"F000010",,,"Del. Eni Faleomavaega Jr","202-225-8577","Rayburn",2422
-"F000453",,,"Rep. Mary Fallin","202-225-2132","Longworth",1432
-"F000030",,,"Rep. Sam Farr","202-225-2861","Longworth",1126
-"F000043",,,"Rep. Chaka Fattah Sr.","202-225-4001","Rayburn",2301
-"F000116",,,"Rep. Bob Filner","202-225-8045","Rayburn",2428
-"F000444",,,"Rep. Jeff Flake","202-225-2635","Cannon",240
-"F000456",,,"Rep. John Fleming","202-225-2777","Longworth",1023
-"F000445",,,"Rep. Randy Forbes","202-225-6365","Rayburn",2438
-"F000449",,,"Rep. Jeff Fortenberry","202-225-4806","Longworth",1535
-"F000454",,,"Rep. Bill Foster","202-225-2976","Longworth",1339
-"F000450",,,"Rep. Virginia Foxx","202-225-2071","Longworth",1230
-"F000372",,,"Rep. Rodney Frelinghuysen","202-225-5034","Rayburn",2442
-"F000455",,,"Rep. Marcia Fudge","202-225-7032","Longworth",1513
-"G000021",,,"Rep. Elton Gallegly","202-225-5811","Rayburn",2309
-"G000559",,,"Rep. John Garamendi","202-225-1880","Rayburn",2459
-"G000548",,,"Rep. E. Scott Garrett","202-225-4465","Cannon",137
-"G000549",,,"Rep. Jim Gerlach","202-225-4315","Cannon",308
-"G000554",,,"Rep. Gabrielle Giffords","202-225-2542","Longworth",1728
-"G000555",,,"Sen. Kirsten Gillibrand","202-224-4451","Russell",478
-"G000552",,,"Rep. Louie Gohmert","202-225-3035","Cannon",511
-"G000544",,,"Rep. Charlie Gonzalez","202-225-3236","Cannon",303
-"G000289",,,"Rep. Bob Goodlatte","202-225-5431","Rayburn",2240
-"G000309",,,"Rep. Bart Gordon","202-225-4231","Rayburn",2306
-"G000377",,,"Rep. Kay Granger","202-225-5071","Cannon",320
-"G000546",,,"Rep. Sam Graves","202-225-7041","Longworth",1415
-"G000556",,,"Rep. Alan Grayson","202-225-2176","Longworth",1605
-"G000410",,,"Rep. Gene Green","202-225-1688","Rayburn",2372
-"G000553",,,"Rep. Al Green","202-225-7508","Cannon",236
-"G000557",,,"Rep. Parker Griffith","202-225-4801","Cannon",417
-"G000558",,,"Rep. Steven Guthrie","202-225-3501","Cannon",510
-"G000535",,,"Rep. Luis Gutierrez","202-225-8203","Rayburn",2266
-"H001039",,,"Rep. John Hall","202-225-5441","Longworth",1217
-"H000067",,,"Rep. Ralph Hall","202-225-6673","Rayburn",2405
-"H001044",,,"Rep. Debbie Halvorson","202-225-3635","Longworth",1541
-"H000213",,,"Rep. Jane Harman","202-225-8220","Rayburn",2400
-"H001045",,,"Rep. Gregg Harper","202-225-5031","Cannon",307
-"H000324",,,"Rep. Alcee Hastings Sr.","202-225-1313","Rayburn",2353
-"H000329",,,"Rep. Doc Hastings","202-225-5816","Longworth",1203
-"H001046",,,"Rep. Martin Heinrich","202-225-6316","Longworth",1505
-"H001041",,,"Rep. Dean Heller","202-225-6155","Cannon",125
-"H001036",,,"Rep. Jeb Hensarling","202-225-3484","Cannon",129
-"H000528",,,"Rep. Wally Herger Jr.","202-225-3076","Cannon",242
-"H001037",,,"Rep. Stephanie Herseth Sandlin","202-225-2801","Cannon",331
-"H001038",,,"Rep. Brian Higgins","202-225-3306","Cannon",431
-"H001030",,,"Rep. Baron Hill","202-225-5315","Cannon",223
-"H001047",,,"Rep. Jim Himes","202-225-5541","Cannon",214
-"H000627",,,"Rep. Maurice Hinchey","202-225-6335","Rayburn",2431
-"H000636",,,"Rep. Ruben Hinojosa Sr.","202-225-2531","Rayburn",2463
-"H001043",,,"Rep. Paul Hodes","202-225-5206","Longworth",1317
-"H000676",,,"Rep. Pete Hoekstra","202-225-4401","Rayburn",2234
-"H001032",,,"Rep. Rush Holt Jr.","202-225-5801","Longworth",1214
-"H001034",,,"Rep. Mike Honda","202-225-2631","Longworth",1713
-"H000762",,,"Rep. Darlene Hooley",,,
-"H000874",,,"Rep. Steny Hoyer","202-225-4131","Longworth",1705
-"H001048",,,"Rep. Duncan Hunter","202-225-5672","Longworth",1429
-"I000023",,,"Rep. Bob Inglis Sr.","202-225-6030","Cannon",100
-"I000026",,,"Rep. Jay Inslee","202-225-6311","Cannon",403
-"I000056",,,"Rep. Darrell Issa","202-225-3906","Rayburn",2347
-"J000283",,,"Rep. Jesse Jackson Jr.","202-225-0773","Rayburn",2419
-"J000032",,,"Rep. Sheila Jackson Lee","202-225-3816","Rayburn",2160
-"J000285",,,"Rep. Tim Johnson","202-225-2371","Longworth",1207
-"J000174",,,"Rep. Sam Johnson","202-225-4201","Longworth",1211
-"J000288",,,"Rep. Hank Johnson Jr.","202-225-1605","Longworth",1133
-"J000126",,,"Rep. Eddie Johnson","202-225-8885","Longworth",1511
-"J000255",,,"Rep. Walter Jones Jr.","202-225-3415","Rayburn",2333
-"J000289",,,"Rep. Jim Jordan","202-225-2676","Cannon",515
-"K000365",,,"Rep. Steven Kagen","202-225-5665","Longworth",1232
-"K000008",,,"Rep. Paul Kanjorski","202-225-6511","Rayburn",2188
-"K000009",,,"Rep. Marcy Kaptur","202-225-4146","Rayburn",2186
-"K000113",,,"Rep. Patrick Kennedy","202-225-4911","Cannon",407
-"K000172",,,"Rep. Dale Kildee","202-225-3611","Rayburn",2107
-"K000180",,,"Rep. Carolyn Kilpatrick","202-225-2261","Rayburn",2264
-"K000372",,,"Rep. Mary Jo Kilroy","202-225-2015","Longworth",1237
-"K000188",,,"Rep. Ron Kind","202-225-5506","Longworth",1406
-"K000220",,,"Rep. Jack Kingston","202-225-5831","Rayburn",2368
-"K000368",,,"Rep. Ann Kirkpatrick","202-225-2315","Longworth",1123
-"K000369",,,"Rep. Larry Kissell","202-225-3715","Cannon",512
-"K000366",,,"Rep. Ron Klein","202-225-3026","Cannon",313
-"K000363",,,"Rep. John Kline","202-225-2271","Longworth",1210
-"K000370",,,"Rep. Suzanne Kosmas","202-225-2706","Cannon",238
-"K000371",,,"Rep. Frank Kratovil Jr.","202-225-5311","Cannon",314
-"K000336",,,"Rep. Dennis Kucinich","202-225-5871","Rayburn",2445
-"L000564",,,"Rep. Doug Lamborn","202-225-4422","Cannon",437
-"L000043",,,"Rep. Nick Lampson",,,
-"L000567",,,"Rep. Leonard Lance","202-225-5361","Cannon",114
-"L000559",,,"Rep. Jim Langevin","202-225-2735","Cannon",109
-"L000111",,,"Rep. Tom Latham","202-225-5476","Rayburn",2217
-"L000553",,,"Rep. Steven LaTourette","202-225-5731","Rayburn",2371
-"L000566",,,"Rep. Bob Latta","202-225-6405","Longworth",1531
-"L000263",,,"Rep. Sandy Levin","202-225-4961","Longworth",1236
-"L000287",,,"Rep. John Lewis","202-225-3801","Cannon",343
-"L000321",,,"Rep. John Linder","202-225-4272","Longworth",1026
-"L000563",,,"Rep. Daniel Lipinski","202-225-5701","Longworth",1717
-"L000554",,,"Rep. Frank LoBiondo","202-225-6572","Rayburn",2427
-"L000565",,,"Rep. Dave Loebsack","202-225-6576","Longworth",1221
-"L000569",,,"Rep. Blaine Luetkemeyer","202-225-2956","Longworth",1118
-"L000571",,,"Rep. Cynthia Lummis","202-225-2311","Longworth",1004
-"L000517",,,"Rep. Dan Lungren","202-225-5716","Rayburn",2262
-"L000562",,,"Rep. Stephen Lynch","202-225-8273","Cannon",221
-"M001155",,,"Rep. Connie Mack IV","202-225-2536","Cannon",115
-"M001171",,,"Rep. Dan Maffei","202-225-3701","Longworth",1630
-"M000087",,,"Rep. Carolyn Maloney","202-225-7944","Rayburn",2332
-"M001138",,,"Rep. Don Manzullo","202-225-5676","Rayburn",2228
-"M001158",,,"Rep. Kenny Marchant","202-225-6605","Cannon",227
-"M001172",,,"Rep. Betsy Markey","202-225-4676","Longworth",1229
-"M000133",,,"Rep. Ed Markey","202-225-2836","Rayburn",2108
-"M001146",,,"Rep. Jim Marshall","202-225-6531","Cannon",504
-"M001173",,,"Rep. Eric Massa","202-225-3161","Longworth",1208
-"M001142",,,"Rep. Jim Matheson","202-225-3011","Rayburn",2434
-"M000309",,,"Rep. Carolyn McCarthy","202-225-5516","Rayburn",2346
-"M001165",,,"Rep. Kevin McCarthy","202-225-2915","Longworth",1523
-"M001157",,,"Rep. Michael McCaul","202-225-2401","Cannon",131
-"M001177",,,"Rep. Tom McClintock","202-225-2511","Cannon",508
-"M001143",,,"Rep. Betty McCollum","202-225-6631","Longworth",1714
-"M001147",,,"Rep. Thad McCotter","202-225-8171","Longworth",1632
-"M000404",,,"Rep. Jim McDermott","202-225-3106","Longworth",1035
-"M000312",,,"Rep. Jim McGovern","202-225-6101","Cannon",438
-"M001156",,,"Rep. Patrick McHenry","202-225-2576","Cannon",224
-"M000472",,,"Rep. John McHugh",,,
-"M000485",,,"Rep. Mike McIntyre","202-225-2731","Rayburn",2437
-"M000508",,,"Rep. Buck McKeon","202-225-1956","Rayburn",2184
-"M001174",,,"Rep. Michael McMahon","202-225-3371","Cannon",323
-"M001159",,,"Rep. Cathy McMorris-Rodgers","202-225-2006","Longworth",1323
-"M001166",,,"Rep. Jerry McNerney","202-225-1947","Cannon",312
-"M001148",,,"Rep. Kendrick Meek Sr.","202-225-4506","Longworth",1039
-"M001137",,,"Rep. Gregory Meeks","202-225-3461","Rayburn",2342
-"M001161",,,"Rep. Charlie Melancon Sr.","202-225-4031","Cannon",404
-"M000689",,,"Rep. John Mica","202-225-4035","Rayburn",2313
-"M001149",,,"Rep. Mike Michaud","202-225-6306","Longworth",1724
-"M000714",,,"Rep. Juanita Millender-McDonald",,,
-"M000725",,,"Rep. George Miller","202-225-2095","Rayburn",2205
-"M001144",,,"Rep. Jeff Miller","202-225-4136","Rayburn",2439
-"M001150",,,"Rep. Candice Miller","202-225-2106","Cannon",228
-"M001139",,,"Rep. Gary Miller","202-225-3201","Rayburn",2349
-"M001175",,,"Rep. Walt Minnick","202-225-6611","Longworth",1517
-"M001167",,,"Rep. Harry Mitchell","202-225-2190","Longworth",1410
-"M000844",,,"Rep. Alan Mollohan","202-225-4172","Rayburn",2302
-"M001140",,,"Rep. Dennis Moore","202-225-2865","Longworth",1727
-"M001160",,,"Rep. Gwen Moore","202-225-4572","Longworth",1239
-"M000933",,,"Rep. Jim Moran Jr.","202-225-4376","Rayburn",2239
-"M000934",,,"Rep. Jerry Moran","202-225-2715","Rayburn",2202
-"M001169",,,"Rep. Chris Murphy","202-225-4476","Cannon",412
-"M001178",,,"Rep. Scott Murphy","202-225-5614","Cannon",120
-"M001168",,,"Rep. Patrick Murphy","202-225-4276","Longworth",1609
-"M001151",,,"Rep. Tim Murphy","202-225-2301","Cannon",322
-"M001152",,,"Rep. Marilyn Musgrave",,,
-"M001134",,,"Rep. Sue Myrick","202-225-1976","Cannon",230
-"N000002",,,"Rep. Jerrold Nadler","202-225-5635","Rayburn",2334
-"N000179",,,"Rep. Grace Napolitano","202-225-5256","Longworth",1610
-"N000147",,,"Del. Eleanor Norton","202-225-8050","Rayburn",2136
-"O000006",,,"Rep. Jim Oberstar","202-225-6211","Rayburn",2365
-"O000007",,,"Rep. Dave Obey","202-225-3365","Rayburn",2314
-"O000168",,,"Rep. Pete Olson","202-225-5951","Cannon",514
-"O000085",,,"Rep. John Olver","202-225-5335","Longworth",1111
-"O000107",,,"Rep. Solomon Ortiz Sr.","202-225-7742","Rayburn",2110
-"P000034",,,"Rep. Frank Pallone Jr.","202-225-4671","Cannon",237
-"P000096",,,"Rep. Bill Pascrell Jr.","202-225-5751","Rayburn",2464
-"P000099",,,"Rep. Ed Pastor","202-225-4065","Rayburn",2465
-"P000149",,,"Rep. Donald Payne","202-225-3436","Rayburn",2310
-"P000600",,,"Rep. Tom Perriello","202-225-4711","Longworth",1520
-"P000595",,,"Rep. Gary Peters","202-225-5802","Longworth",1130
-"P000258",,,"Rep. Collin Peterson","202-225-2165","Rayburn",2211
-"P000265",,,"Rep. Tom Petri","202-225-2476","Rayburn",2462
-"P000323",,,"Rep. Chip Pickering Jr.",,,
-"P000596",,,"Com. Pedro Pierluisi","202-225-2615","Longworth",1218
-"P000597",,,"Rep. Chellie Pingree","202-225-6116","Longworth",1037
-"P000373",,,"Rep. Joe Pitts","202-225-2411","Cannon",420
-"P000585",,,"Rep. Todd Platts","202-225-5836","Rayburn",2455
-"P000592",,,"Rep. Ted Poe","202-225-6565","Cannon",430
-"P000422",,,"Rep. Earl Pomeroy","202-225-2611","Longworth",1501
-"P000599",,,"Rep. Bill Posey","202-225-3671","Cannon",132
-"R000004",,,"Rep. George Radanovich","202-225-4540","Rayburn",2410
-"R000011",,,"Rep. Nick Rahall II","202-225-3452","Rayburn",2307
-"R000053",,,"Rep. Charlie Rangel","202-225-4365","Rayburn",2354
-"R000571",,,"Rep. Denny Rehberg","202-225-3211","Rayburn",2448
-"R000578",,,"Rep. Dave Reichert","202-225-7761","Longworth",1730
-"R000170",,,"Rep. Silver Reyes","202-225-4831","Rayburn",2433
-"R000581",,,"Rep. Laura Richardson","202-225-7924","Longworth",1725
-"R000568",,,"Rep. Ciro Rodriguez","202-225-4511","Rayburn",2351
-"R000582",,,"Rep. Phil Roe","202-225-6356","Cannon",419
-"R000575",,,"Rep. Mike Rogers","202-225-3261","Cannon",324
-"R000395",,,"Rep. Hal Rogers","202-225-4601","Rayburn",2406
-"R000409",,,"Rep. Dana Rohrabacher","202-225-2415","Rayburn",2300
-"R000435",,,"Rep. Ileana Ros-Lehtinen","202-225-3931","Rayburn",2470
-"R000462",,,"Rep. Steve Rothman","202-225-5061","Rayburn",2303
-"R000486",,,"Rep. Lucille Roybal-Allard","202-225-1766","Rayburn",2330
-"R000576",,,"Rep. C.A. Dutch Ruppersberger","202-225-3061","Rayburn",2453
-"S001167",,,"Rep. Bill Sali",,,
-"S000030",,,"Rep. Loretta Sanchez","202-225-2965","Longworth",1114
-"S001168",,,"Rep. John Sarbanes","202-225-4016","Cannon",426
-"S001176",,,"Rep. Steve Scalise","202-225-3015","Cannon",429
-"S001145",,,"Rep. Jan Schakowsky","202-225-2111","Rayburn",2367
-"S001178",,,"Rep. Mark Schauer","202-225-6276","Longworth",1408
-"S001150",,,"Rep. Adam Schiff","202-225-4176","Rayburn",2447
-"S001179",,,"Rep. Aaron Schock","202-225-6201","Cannon",509
-"S001180",,,"Rep. Kurt Schrader","202-225-5711","Longworth",1419
-"S001162",,,"Rep. Allyson Schwartz","202-225-6111","Cannon",330
-"S000185",,,"Rep. Bobby Scott","202-225-8351","Longworth",1201
-"S001157",,,"Rep. David Scott","202-225-2939","Cannon",225
-"S000244",,,"Rep. Jim Sensenbrenner Jr.","202-225-5101","Rayburn",2449
-"S000248",,,"Rep. Jose Serrano","202-225-4361","Rayburn",2227
-"S000250",,,"Rep. Pete Sessions","202-225-2231","Rayburn",2233
-"S001169",,,"Rep. Joe Sestak Jr.","202-225-2011","Longworth",1022
-"S000275",,,"Rep. John Shadegg","202-225-3361","Cannon",436
-"S001170",,,"Rep. Carol Shea-Porter","202-225-5456","Longworth",1330
-"S000344",,,"Rep. Brad Sherman","202-225-5911","Rayburn",2242
-"S000364",,,"Rep. John Shimkus","202-225-5271","Rayburn",2452
-"S001171",,,"Rep. Heath Shuler","202-225-6401","Cannon",422
-"S001154",,,"Rep. Bill Shuster","202-225-2431","Cannon",204
-"S001148",,,"Rep. Mike Simpson","202-225-5531","Rayburn",2312
-"S001165",,,"Rep. Albio Sires","202-225-7919","Longworth",1024
-"S000465",,,"Rep. Ike Skelton","202-225-2876","Rayburn",2206
-"S000480",,,"Rep. Louise Slaughter","202-225-3615","Rayburn",2469
-"S000583",,,"Rep. Lamar Smith","202-225-4236","Rayburn",2409
-"S000522",,,"Rep. Chris Smith","202-225-3765","Rayburn",2373
-"S000510",,,"Rep. Adam Smith","202-225-8901","Rayburn",2402
-"S001172",,,"Rep. Adrian Smith","202-225-6435","Cannon",503
-"S000672",,,"Rep. Vic Snyder","202-225-2506","Rayburn",2210
-"S001153",,,"Rep. Hilda Solis",,,
-"S001143",,,"Rep. Mark Souder","202-225-4436","Rayburn",2231
-"S001175",,,"Rep. Jackie Speier","202-225-3531","Cannon",211
-"S000749",,,"Rep. John Spratt Jr.","202-225-5501","Longworth",1401
-"S000810",,,"Rep. Pete Stark","202-225-5065","Cannon",239
-"S000822",,,"Rep. Cliff Stearns","202-225-5744","Rayburn",2370
-"S001045",,,"Rep. Bart Stupak","202-225-4735","Rayburn",2268
-"S001155",,,"Rep. John Sullivan","202-225-2211","Cannon",434
-"S001174",,,"Rep. Betty Sutton","202-225-3401","Longworth",1721
-"T000038",,,"Rep. John Tanner","202-225-4714","Longworth",1226
-"T000057",,,"Rep. Ellen Tauscher",,,
-"T000074",,,"Rep. Gene Taylor","202-225-5772","Rayburn",2269
-"T000466",,,"Rep. Harry Teague","202-225-2365","Longworth",1007
-"T000467",,,"Rep. G.T. Thompson Jr.","202-225-5121","Cannon",124
-"T000460",,,"Rep. Mike Thompson","202-225-3311","Cannon",231
-"T000238",,,"Rep. Mac Thornberry","202-225-3706","Rayburn",2209
-"T000266",,,"Rep. John Tierney","202-225-8020","Rayburn",2238
-"T000468",,,"Rep. Dina Titus","202-225-3252","Cannon",319
-"T000326",,,"Rep. Ed Towns","202-225-5936","Rayburn",2232
-"T000463",,,"Rep. Mike Turner","202-225-6465","Longworth",1740
-"U000039",,,"Sen. Tom Udall","202-224-6621","Hart",110
-"U000031",,,"Rep. Fred Upton","202-225-3761","Rayburn",2183
-"V000128",,,"Rep. Chris Van Hollen Jr.","202-225-5341","Longworth",1707
-"V000081",,,"Rep. Nydia Velazquez","202-225-2361","Rayburn",2466
-"V000108",,,"Rep. Pete Visclosky","202-225-2461","Rayburn",2256
-"W000791",,,"Rep. Greg Walden","202-225-6730","Rayburn",2352
-"W000799",,,"Rep. Tim Walz","202-225-2472","Longworth",1722
-"W000119",,,"Rep. Zach Wamp","202-225-3271","Longworth",1436
-"W000797",,,"Rep. Debbie Wasserman Schultz","202-225-7931","Cannon",118
-"W000187",,,"Rep. Maxine Waters","202-225-2201","Rayburn",2344
-"W000794",,,"Rep. Diane Watson","202-225-7084","Rayburn",2430
-"W000207",,,"Rep. Mel Watt","202-225-1510","Rayburn",2304
-"W000215",,,"Rep. Henry Waxman","202-225-3976","Rayburn",2204
-"W000792",,,"Rep. Anthony Weiner","202-225-6616","Rayburn",2104
-"W000800",,,"Rep. Peter Welch","202-225-4115","Longworth",1404
-"W000267",,,"Rep. David Weldon",,,
-"W000796",,,"Rep. Lynn Westmoreland","202-225-5901","Longworth",1213
-"W000314",,,"Rep. Robert Wexler","202-225-3001","Rayburn",2241
-"W000413",,,"Rep. Ed Whitfield","202-225-3115","Rayburn",2411
-"W000795",,,"Rep. Joe Wilson Sr.","202-225-2452","Cannon",212
-"W000801",,,"Rep. Charlie Wilson Jr.","202-225-5705","Cannon",226
-"W000804",,,"Rep. Rob Wittman","202-225-4261","Longworth",1318
-"W000738",,,"Rep. Lynn Woolsey","202-225-5161","Rayburn",2263
-"W000793",,,"Rep. David Wu","202-225-0855","Rayburn",2338
-"Y000033",,,"Rep. Don Young","202-225-5765","Rayburn",2111
-"Y000031",,,"Rep. C. W. Bill Young","202-225-5961","Rayburn",2407
+"OFFICE NAME (ORIGINAL)","OFFICE NAME (STANDARD)","COMMITTEE_ID","OFFICE PHONE","OFFICE LOCATION","OFFICE ROOM NUMBER"
+"OFFICE OF FINANCE","Office of Finance",,"(202) 225-7474","Cannon House Office Building",263
+"CLERK OF THE HOUSE","Clerk of the House",,"(202) 225-7000","Capitol","H154"
+"COMMITTEE ON AGRICULTURE","House Committee on Agriculture","HSAG","(202) 225-2171"," Longworth House Office Building",1301
+"COMMITTEE ON APPROPRIATIONS","House Committee on Appropriations","HSAP","(202) 225-2771","Capitol","H-218"
+"ARMED SERVICES COMMITTEE","House Committee on Armed Services","HSAS","(202) 225-4151","Rayburn House Office Building",2120
+"COMMITTEE ON BUDGET","House Committee on the Budget","HSBU","(202) 226-7200","Cannon House Office Building",207
+"EDUCATION AND LABOR","House Committee on Education and Labor","HSED","(202) 225-3725","Rayburn House Office Building",2181
+"COMMITTEE ON ENERGY & COMMERCE","House Committee on Energy and Commerce","HSIF","(202) 225-2927","Rayburn House Office Building",2125
+"COMMITTEE ON FINANCIAL SERVICE","House Committee on Financial Services","HSBA","(202) 225-4247","Rayburn House Office Building",2129
+"COMMITTEE ON FOREIGN AFFAIRS","House Committee on Foreign Affairs","HSFA","(202) 225-5021","Rayburn House Office Building",2170
+"HOMELAND SECURITY","House Committee on Homeland Security","HSHM","(202) 226-2616","Ford House Office Building",176
+"HOUSE ADMINISTRATION","House Committee on House Administration","HSHA","(202) 225-2061","Longworth House Office Building",1309
+"COMMITTEE ON NATURAL RESOURCES","House Committee on Natural Resources","HSII","(202) 225-6065","Longworth House Office Building",1324
+"OVERSIGHT & GOVERNMENT REFORM","House Committee on Oversight and Government Reform","HSGO","(202) 225-5051","Rayburn House Office Building",2157
+"COMMITTEE ON RULES","House Committee on Rules","HSRU","(202) 225-9091","Capitol","H-312"
+"COMM ON SCIENCE AND TECHNOLOGY","House Committee on Science and Technology","HSSY","(202) 225-6375","Rayburn House Office Building",2321
+"COMMITTEE ON SMALL BUSINESS","House Committee on Small Business","HSSM","(202) 225-4038","Rayburn House Office Building",2361
+"STANDARDS OF OFFICIAL CONDUCT","House Committee on Standards of Official Conduct","HSSO","(202) 225-7103","Capitol","HT-2"
+"COMMITTEE ON JUDICIARY","House Committee on the Judiciary","HSJU","(202) 225-3951","Rayburn House Office Building",2138
+"TRANSPORTATION-INFRASTRUCTURE","House Committee on Transportation and Infrastructure","HSPW","(202) 225-4472","Rayburn House Office Building",2165
+"VETERANSâ€™ AFFAIRS","House Committee on Veterans' Affairs ","HSVR","(202) 225-9756","Cannon House Office Building",335
+"COMMITTEE ON WAYS AND MEANS","House Committee on Ways and Means","HSWM","(202) 225-3625","Longworth House Office Building",1102
+"DEMOCRATIC CAUCUS","Democratic Caucus",,"(202) 225-1400","Cannon House Office Building","202A"
+"DEMOCRATIC STEERING AND POLICY","Democratic Steering and Policy Committee",,"(202) 225-0100","Capitol","H232"
+"HOUSE CHILD CARE CENTER","House Child Care Center",,"(202) 225-9684","Ford House Office Building","H2-147"
+"INTELLIGENCE","House Permanent Select Committee on Intelligence","HSIG","(202) 225-7690","Capitol Visitor Center","HVC-304"
+"ENERGY INDEP & GLOBAL WARMING","House Select Committee on Energy Independence and Global Warming","HSGW","(202) 225-4012","Longworth House Office Building","B243 "
+"INTERPARLIAMENTARY AFFAIRS","Interparliamentary Affairs",,"(202) 226-1766","Capitol","HB28"
+"JOINT COMMMITTEE ON TAXATION","Joint Committee on Taxation","JSTX","(202) 225‑3621","Longworth House Office Building",1015
+"LAW REVISION COUNSEL","Law Revision Counsel",,"(202) 226-2411","Ford House Office Building","H2-308"
+"LEGISLATIVE COUNSEL","Legislative Counsel",,"(202) 225-6060","Cannon House Office Building",136
+"OFFICE OF CONGRESSIONAL ETHICS","Office of Congressional Ethics",,"(202) 225-9739","Longworth House Office Building",1017
+"OEPPO","Office of Emergency Planning, Preparedness and Operations",,"(202) 226-0950","Ford House Office Building","H2-192"
+"OFFICE OF THE CHAPLAIN","Office of the Chaplain",,"(202) 225-2509","Capitol","HB25"
+"OFFICE OF GENERAL COUNSEL","Office of the General Counsel",,"(202) 225-9700","Cannon House Office Building",219
+"OFFICE OF THE HISTORIAN","Office of the Historian",,"(202) 226-5525","Cannon House Office Building","B56"
+"OFFICE OF INSPECTOR GENERAL","Office of the Inspector General",,"(202) 226-1250","Ford House Office Building","H2-386"
+"OFFICE OF THE MAJORITY LEADER","Office of the Majority Leader",,"(202) 225-3130","Capitol","H107"
+"OFFICE OF THE MAJORITY WHIP","Office of the Majority Whip",,"(202) 226-3210","Capitol","H329"
+"OFFICE OF THE MINORITY LEADER","Office of the Minority Leader",,"(202) 225-4000","Capitol","H204"
+"OFFICE OF THE MINORITY WHIP","Office of the Minority Whip",,"(202) 225-0197","Capitol","H307"
+"OFFICE OF THE PARLIAMENTARIAN","Office of the Parliamentarian",,"(202) 225-7373","Capitol","H209"
+"OFFICE OF THE PARLIAMENTARIAN","Office of the Parlimentarian",,"(202) 225-7373","Capitol","H209"
+"OFFICE OF THE SPEAKER","Office of the Speaker",,"(202) 225-0100","Capitol","H232"
+"REPUBLICAN CONFERENCE","Republican Conference",,"(202) 225-5107","Rayburn House Office Building",1420
+"REPUBLICAN POLICY COMMITTEE","Republican Policy Committee",,"(202) 225-6168","Cannon House Office Building","B58"
+"SERGEANT AT ARMS","Sergeant at Arms",,"(202) 225-2456","Capitol","H124"
+"LEGISLATIVE FLOOR ACTIVITIES",,,,,
+"RC-TRAINING & PROGRAM DEVEL.",,,,,
+"DS-TRAINING & PROGRAM DEVEL.",,,,,
+"CLOAKROOM PERSONNEL - MAJ",,,,,
+"CLOAKROOM PERSONNEL - MIN",,,,,
+"COMPILATION OF PRECEDENTS",,,,,
+"TECHNICAL ASSISTANTS",,,,,
+"FORMER SPEAKER HASTERT",,,,,
+"HOUSE INFORMATION RESOURCES",,,,,
+"19TH DISTRICT OF FLORIDA",,,,,
+"OTHER ADMINISTRATION",,,,,
+"GOVERNMENT CONTRIBUTIONS",,,,,
+"REPUBLICAN STEERING COMMITTEE",,,,,
+"CHIEF ADMINISTRATIVE OFFICER",,,,,
+"CAO ADVANCED BUSINESS SOLUTION",,,,,
+"CAO OPERATIONS MANAGEMENT",,,,,
+"COMMUNICATIONS",,,,,
+"COMM ON VOTING IRREG-AUG2 2007",,,,,
+"MINORITY EMPLOYEES",,,,,
