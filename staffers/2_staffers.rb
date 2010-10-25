@@ -32,13 +32,13 @@ FasterCSV.foreach(staffers_file) do |row|
 end
 
 i = 0
-FasterCSV.open(staffers_file, "a") do |staffer|
+FasterCSV.open(staffers_file, "a") do |csv|
   
   FasterCSV.foreach(positions_file) do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)"
     next if staffers.include?(row[0])
     
-    staffer << [row[0], row[0]]
+    csv << [row[0], row[0]]
     staffers << row[0]
     i += 1
   end
