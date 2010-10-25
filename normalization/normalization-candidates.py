@@ -5,6 +5,8 @@ import os
 import re
 import sys
 
+YEARS = ('2009','2010')
+
 SUFFIXES = ('association','assoc','assn','incorporated','inc','company','co',
 'corporation','corp','committee','cmte','limited','ltd')
 SUFFIX_RE = re.compile(r'(%s)$' % '|'.join(SUFFIXES))
@@ -39,11 +41,13 @@ mapping = {}
 normalized = {}
 to_normalize = {}
 
-for record in csv.DictReader(open('normalization_mapping.csv')):
-    mapping[record['original']] = record['normalized']
+for year in YEARS:
+    
+    for record in csv.DictReader(open('normalization_mapping-%s.csv' % year)):
+        mapping[record['original']] = record['normalized']
 
-for record in csv.reader(open('2009-normalized_payees.csv')):
-    normalized[record[0]] = True
+    for record in csv.reader(open('normalized_payees-%s.csv' % year)):
+        normalized[record[0]] = True
 
 path = os.path.abspath(sys.argv[1])
 for record in csv.DictReader(open(path, 'U')):
