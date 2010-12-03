@@ -23,9 +23,9 @@
       * quarter (e.g. 'Q1', 'Q2') 
 '''
 
-disbursements_file = '2010q1-disbursements-only.txt'
+disbursements_file = '2010q3-disbursements-only.txt'
 year = '2010'
-quarter = 'Q1'
+quarter = 'Q3'
 thisquarter = year + quarter
 
 import csv, re, sys
