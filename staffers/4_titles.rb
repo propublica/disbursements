@@ -31,17 +31,28 @@ FasterCSV.foreach(titles_file) do |row|
   titles << row[0]
 end
 
-i = 0
+t = 0
+p = 0
 FasterCSV.open(titles_file, "a") do |csv|
   
   FasterCSV.foreach(positions_file) do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)" # header row in positions.csv
-    next if titles.include?(row[1])
     
-    csv << [row[1], row[1]]
-    titles << row[1]
-    i += 1
+    title = row[1]
+    next if titles.include?(title)
+    
+    # split up any ' AND ' titles, unless we specifically list them to be standardized 
+    # (in which case they just got skipped in the second 'next' line above)
+    title.split(" AND ").each do |piece|
+      next if titles.include?(piece)
+      
+      csv << [title, piece]
+      p += 1
+    end
+    
+    titles << title
+    t += 1
   end
 end
 
-puts "Appended #{i} new titles to #{titles_file}."
+puts "Appended #{p} new titles (from #{t} original unique titles) to #{titles_file}."
