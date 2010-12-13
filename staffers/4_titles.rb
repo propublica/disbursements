@@ -46,7 +46,12 @@ FasterCSV.open(titles_file, "a") do |csv|
     title.split(" AND ").each do |piece|
       next if titles.include?(piece)
       
-      csv << [title, piece]
+      if piece == title
+        csv << [title]
+      else
+        csv << [title, piece]
+      end
+      
       p += 1
     end
     
