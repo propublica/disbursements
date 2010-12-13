@@ -38,20 +38,23 @@ FasterCSV.open(titles_file, "a") do |csv|
   FasterCSV.foreach(positions_file) do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)" # header row in positions.csv
     
-    title = row[1]
+    title = row[1] # original title
+    puts title if title == "ASST. COMM DIR AND CONST LIAISON"
+    
     next if titles.include?(title)
     
     # split up any ' AND ' titles, unless we specifically list them to be standardized 
     # (in which case they just got skipped in the second 'next' line above)
-    title.split(" AND ").each do |piece|
-      next if titles.include?(piece)
-      
-      if piece == title
-        csv << [title]
-      else
-        csv << [title, piece]
-      end
-      
+    if title =~ /\ ?\/\ ?/
+      pieces = title.split(/\ ?\/\ ?/)
+    elsif title =~ / AND /
+      pieces = title.split(/ AND /)
+    else
+      pieces = [title]
+    end
+    
+    pieces.each do |piece|
+      csv << [title, piece]
       p += 1
     end
     
