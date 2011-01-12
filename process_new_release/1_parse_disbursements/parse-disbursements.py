@@ -121,7 +121,9 @@ def main():
     for l in f.readlines():
 
         # replace UTF-8 minus with normal dash and strip
-        l = l.replace('–','-').strip()
+        # replace smart quotes with regular quotes
+        l = l.replace('–','-').replace('″', '"').strip()
+        
 
         # new member
         if l.startswith("2010 ") or l.startswith("2008 ") or l.startswith("2009 ") or l.startswith('2007 ') or l.startswith("FISCAL YEAR "):
