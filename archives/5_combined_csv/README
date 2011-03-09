@@ -1,1 +1,3 @@
 These are the detail and summary CSVs from each processed quarter, appended into one master detail and summary file, using /process_new_release/3_combiner/combiner.rb.
+
+For 2009, we only have information for Q3 and Q4, as that is when the information was first released electronically.
