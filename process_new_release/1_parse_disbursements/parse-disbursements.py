@@ -55,7 +55,7 @@ def main():
 
     regular_re = re.compile(r"""(\d{2}-\d{2})\s+            # date
                             ([0-9A-Z]{2})\s+                # transaction code
-                            ([0-9A-Z]+)\s+                  # record id
+                            ([0-9A-Z\-]+)\s+                  # record id
                             (.*?)                           # recipient
                             (\d{2}/{1}\d{2}/{1}\d{2})\s+    # date-start
                             (\d{2}/{1}\d{2}/{1}\d{2})       # date-end
@@ -122,7 +122,7 @@ def main():
 
         # replace UTF-8 minus with normal dash and strip
         # replace smart quotes with regular quotes
-        l = l.replace('–','-').replace('″', '"').strip()
+        l = l.replace('–','-').replace('″', '"').replace('’', '\'').strip()
         
 
         # new member
