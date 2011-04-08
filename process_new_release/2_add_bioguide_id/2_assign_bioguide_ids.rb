@@ -25,6 +25,8 @@ unless File.exists?(names_file)
 end
 
 @@misses = 0
+@@missed_names = []
+
 @@duplicates = 0
 Sunlight::Base.api_key = 'sunlight9'
 
@@ -53,8 +55,7 @@ def legislator_for_name(name)
   puts "Couldn't find #{name} cached, checking with the Sunlight Labs Congress API..."
   
   # get rid of "HON." prefix and split on spaces
-  name = name.gsub /^HON\.\s?/i, ''
-  pieces = name.split /\s+/
+  pieces = name.gsub(/^HON\.\s?/i, '').split /\s+/
   
   # might be a state in parentheses at the end
   options[:state] = pieces.pop.gsub(/[\(\)]/, '') if pieces.last =~ /^\([a-zA-Z]+\)$/
@@ -118,6 +119,8 @@ def legislator_for_name(name)
             else
               @@misses += 1
               puts "I GIVE UP. Couldn't match on options: #{options.merge(:pieces => pieces).inspect}"
+              @@missed_names << name
+              puts "Added name to bottom of bioguide_ids.csv WITHOUT a bioguide_id, match by hand"
             end
           end
           
@@ -206,11 +209,15 @@ FasterCSV.open(bioguide_file, "a") do |csv|
   names.each do |name, values|
     csv << [values[:bioguide_id], name, values[:name_confirm_from_sunlight], values[:in_office]]
   end
+  
+  @@missed_names.each do |name|
+    csv << [nil, name, nil]
+  end
 end
 
 puts ""
 puts "Out of #{names.keys.size} names:"
-puts "#{@@misses} attempts failed to match a legislator entirely."
+puts "#{@@misses} attempts failed to match a legislator entirely, requires manual matching."
 puts "#{@@duplicates} attempts matched too many legislators."
 puts ""
-puts "Appended any new names and bioguide IDs on to #{bioguide_file}."
+puts "Appended any new names and bioguide IDs to #{bioguide_file}."

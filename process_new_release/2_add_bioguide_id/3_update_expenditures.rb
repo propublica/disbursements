@@ -31,7 +31,9 @@ end
 legislators = {}
 FasterCSV.foreach(bioguide_file) do |row|
   # key is name, value is bioguide_id
-  legislators[row[1]] = row[0]
+  if row[0] and row[0] != ""
+    legislators[row[1]] = row[0] 
+  end
 end
 
 # open up a file for writing, and in it:
