@@ -17,7 +17,7 @@ It assumes that if there is a case of two identically named legislators (i.e. Mi
 
 = Known Mistakes =
 
-Mary Bono Mack is mistaken for Connie Mack.  There's no easy way to correct this without hardcoding Mack into the code.  Make sure to correct this during step 4.
+Mary Bono Mack is mistaken for Connie Mack.  There's no easy way to correct this without hardcoding Mack into the code.  Make sure to correct this during step 4, unless the correction for this mistake is already safely cached in bioguide_ids.csv.
 
 
 = Instructions =
