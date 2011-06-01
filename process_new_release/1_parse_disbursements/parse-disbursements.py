@@ -21,11 +21,13 @@
       * disbursements_file variable (input file, e.g. '2010q2-disbursements-only.txt')
       * year (e.g. '2009', '2010')
       * quarter (e.g. 'Q1', 'Q2') 
+   
+   WARNING: there's a hardcoded or clause with individual years in it - this should be refactored to be an array, or at least kept up to date. I added up to 2015.
 '''
 
-disbursements_file = '2010q4-disbursements-only.txt'
-year = '2010'
-quarter = 'Q4'
+disbursements_file = '2011q1-disbursements-only.txt'
+year = '2011'
+quarter = 'Q1'
 thisquarter = year + quarter
 
 import csv, re, sys
@@ -126,7 +128,8 @@ def main():
         
 
         # new member
-        if l.startswith("2010 ") or l.startswith("2008 ") or l.startswith("2009 ") or l.startswith('2007 ') or l.startswith("FISCAL YEAR "):
+        #TODO: refactor this to use an array
+        if l.startswith("2015 ") or l.startswith("2014 ") or l.startswith("2013 ") or l.startswith("2012 ") or l.startswith("2011 ") or l.startswith("2010 ") or l.startswith("2008 ") or l.startswith("2009 ") or l.startswith('2007 ') or l.startswith("FISCAL YEAR "):
             if l.startswith("FISCAL YEAR "):
                 thismem = l.replace('—', '')[17:]
                 thisyear = l[:16]
