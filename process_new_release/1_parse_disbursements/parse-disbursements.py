@@ -10,7 +10,7 @@
 
     Disclaimer: It was written quickly under deadline and likely contains a few bugs - patches welcome
 
-    It expects a file (named in the disbursements_file variable below) created as the result of something like the following two operations:
+    It expects a file (named in the disbursements_file variable below) created as the result of something like the following operation:
        
        pdftotext -layout 2010q1_singlevolume.pdf
 
@@ -54,7 +54,7 @@ def main(disbursements_file):
     oldrecip = None
 
     regular_re = re.compile(r"""(\d{2}-\d{2})[\s\.]+            # date
-                            (GL\sLAW|GL\sFRM|\w{2})[\s\.]+       # transaction code. missing GL LAW and GL FRM.
+                            (GL\sLAW|GL\sFRM|\w{2})[\s\.]+       # transaction code
                             ([0-9A-Z\-]+)[\s\.]+                # record id
                             (.*?)[\s\.]+                        # recipient
                             (\d{2}/{1}\d{2}/{1}\d{2})[\s\.]+    # date-start
@@ -84,11 +84,7 @@ def main(disbursements_file):
                             """, re.VERBOSE)
 
 
-    """'Ditto last line' is not used in newer filings."""
-    ditto_re = re.compile(r"""\s*DO[\s\.]+$""")
-
-
-    year_re = re.compile('20(\d{2})\s*')
+    year_re = re.compile(r"""\s*(FISCAL YEAR)?\s*20([01]\d)\s*""")
 
 
     transcodes = {
@@ -137,7 +133,7 @@ def main(disbursements_file):
         
 
         # new member
-        if year_re.match(l) or l.startswith("FISCAL YEAR "):
+        if year_re.match(l):
             if l.startswith("FISCAL YEAR "):
                 thismem = l.replace('—', '')[17:]
                 thisyear = l[:16]
@@ -146,6 +142,8 @@ def main(disbursements_file):
                 thisyear = l[:4]
             if thismem.endswith("Con."):
                 thismem = thismem[:-4]
+            thismem = thismem.strip()
+            thisyear = thisyear.strip()
             continue
 
         # category
@@ -154,7 +152,7 @@ def main(disbursements_file):
             continue
 
         #regular record
-        ma = regular_re.search(l)
+        ma = regular_re.match(l)
         if ma:
             m = ma.groups()
             date1 = m[0]
@@ -162,7 +160,7 @@ def main(disbursements_file):
             recordid = m[2]
             recip = m[3]
             sunrecip = recip
-            if ditto_re.match(recip):
+            if recip=='DO': #DO for 'Ditto last line' is not used in newer filings.
                 sunrecip = oldrecip
             else:
                 oldrecip = recip
@@ -182,12 +180,12 @@ def main(disbursements_file):
             continue
 
         # personnel record
-        ma = personnel_re.search(l)
+        ma = personnel_re.match(l)
         if ma:
             m = ma.groups()
             recip = m[0]
             sunrecip = recip
-            if ditto_re.match(recip):
+            if recip=='DO': #DO for 'Ditto last line' is not used in newer filings.
                 sunrecip = oldrecip
             else:
                 oldrecip = recip
@@ -202,12 +200,12 @@ def main(disbursements_file):
 
 
         # benefits record
-        ma = benefits_re.search(l)
+        ma = benefits_re.match(l)
         if ma:
             m = ma.groups()
             recip = m[3]
             sunrecip = recip
-            if ditto_re.match(recip):
+            if recip=='DO': #DO for 'Ditto last line' is not used in newer filings.
                 sunrecip = oldrecip
             else:
                 oldrecip = recip
@@ -221,8 +219,8 @@ def main(disbursements_file):
                 transcodelong = transcodes[transcode]
 
 
-
             fdetail.writerow([thismem, thisquarter, thiscat, date1, sunrecip, "","", descrip, amount, thisyear, transcode,transcodelong,recordid, recip ])
+            
             continue
 
 
@@ -230,7 +228,7 @@ def main(disbursements_file):
 
 
         # summary record
-        ma = summary_re.search(l)
+        ma = summary_re.match(l)
         if ma:
             m = ma.groups()
             if m[0].strip() in cats:
