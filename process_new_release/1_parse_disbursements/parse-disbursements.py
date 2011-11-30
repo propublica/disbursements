@@ -25,9 +25,9 @@
    WARNING: there's a hardcoded or clause with individual years in it - this should be refactored to be an array, or at least kept up to date. I added up to 2015.
 '''
 
-disbursements_file = '2011q1-disbursements-only.txt'
+disbursements_file = '2011q3-disbursements-only.txt'
 year = '2011'
-quarter = 'Q1'
+quarter = 'Q3'
 thisquarter = year + quarter
 
 import csv, re, sys
