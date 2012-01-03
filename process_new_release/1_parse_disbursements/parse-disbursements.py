@@ -2,21 +2,19 @@
 # -*- coding: utf-8 -*-
 
 '''
-    This script was used to convert the 2009 Q3 House Disbursement PDF into detail and summary CSV files.
+    This script is used to convert House Disbursement PDFs into detail and summary CSV files.
         Source PDF: http://disbursements.house.gov/
         Resulting Data: http://www.sunlightfoundation.com/projects/2009/expenditures/
 
     It was originally authored by Luke Rosiak with improvements by James Turk for Sunlight Labs and is released into the public domain.
 
-    Disclaimer: It was written quickly under deadline and likely contains a few bugs - patches welcome
-
     It expects a file (named in the disbursements_file variable below) created as the result of something like the following operation:
        
        pdftotext -layout 2010q1_singlevolume.pdf
 
-    The filename's first six characters must represent the quarter it represents. The file is passed to this script as its only argument:
+    The filename's first six characters must represent the quarter it covers. The file is passed to this script as its only argument:
     
-       parse-disbursements.py 2010q1_singlevolume.txt
+       python parse-disbursements.py 2010q1_singlevolume.txt
       
   
 '''
@@ -84,7 +82,7 @@ def main(disbursements_file):
                             """, re.VERBOSE)
 
 
-    year_re = re.compile(r"""\s*(FISCAL YEAR)?\s*20([01]\d)\s*""")
+    year_re = re.compile(r"""(FISCAL YEAR\s+)?20([01]\d)\s+(\w+.*)\s*""")
 
 
     transcodes = {
