@@ -220,6 +220,7 @@ def main(disbursements_file):
             if thiscat == "PERSONNEL BENEFITS":
                 descrip = ("%s %s" % (sunrecip, descrip)).strip() # leaves the space in if sunrecip had a value, strips it if not
                 sunrecip = ""
+                recip = ""
 
             fdetail.writerow([thismem, thisquarter, thiscat, date1, sunrecip, "","", descrip, amount, thisyear, transcode,transcodelong,recordid, recip ])
             
