@@ -44,7 +44,11 @@ FasterCSV.open(positions_file, "a") do |positions|
       bioguide_id = row[0] ? row[0].strip : ''
       office_name = row[1] ? row[1].strip : ''
       
-      positions << [name, title, quarter, bioguide_id, office_name]
+      if title.any?
+        positions << [name, title, quarter, bioguide_id, office_name]
+      else
+        puts "[#{i}] No title for #{name}, skipping"
+      end
       
       i += 1
       puts "Read #{i} rows..." if i % 50000 == 0
