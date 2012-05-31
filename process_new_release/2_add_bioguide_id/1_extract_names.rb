@@ -7,14 +7,8 @@ if filename.nil? or filename == ""
   exit
 end
 
-begin
-  require 'fileutils'
-  require 'rubygems'
-  require 'fastercsv'
-rescue
-  puts "Couldn't load FasterCSV. Try running \"sudo gem install fastercsv\" and try again."
-  exit
-end
+require 'fileutils'
+require 'csv'
 
 unless File.exists?(filename)
   puts "Couldn't locate #{filename}. Place it in the same directory as this script."
@@ -25,7 +19,7 @@ end
 puts "Reading #{filename} for names..."
 names = {}
 i = 0
-FasterCSV.foreach(filename) do |row|
+CSV.foreach(filename) do |row|
   name = row[0]
   names[name] ||= 0
   names[name] += 1
@@ -35,7 +29,7 @@ FasterCSV.foreach(filename) do |row|
 end
 
 FileUtils.rm("all-names.csv") if File.exist?("all-names.csv")
-FasterCSV.open("all-names.csv", "w") do |csv|
+CSV.open("all-names.csv", "w") do |csv|
   csv << ['name', 'num_rows']
   names.keys.sort.each do |key|
     csv << [key, names[key]]

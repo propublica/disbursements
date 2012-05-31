@@ -8,16 +8,11 @@ end
 
 bioguide_file = "bioguide_ids.csv"
 
-begin
-  require 'fileutils'
-  require 'rubygems'
-  require 'sunlight'
-  require 'fastercsv'
-  require 'active_support'
-rescue
-  puts "Couldn't load dependencies. Try running two commands and try again:\n\nsudo gem install fastercsv\nsudo gem install sunlight"
-  exit
-end
+require 'fileutils'
+require 'rubygems'
+require 'sunlight'
+require 'csv'
+# require 'active_support'
 
 unless File.exists?(names_file)
   puts "Couldn't locate #{names_file}. Place it in the same directory as this script."
@@ -32,7 +27,7 @@ Sunlight::Base.api_key = 'sunlight9'
 
 # index by name to known bioguide_id
 @@known_bioguide_ids = {}
-FasterCSV.foreach(bioguide_file) do |row|
+CSV.foreach(bioguide_file) do |row|
   next if row[0] == 'bioguide_id' # skip header row
   
   if row[0] and row[0] != "" and row[1] and row[1] != ""# bioguide_id
@@ -179,7 +174,7 @@ end
 puts "Trying to match up names in #{names_file}..."
 
 names = {}
-FasterCSV.foreach(names_file) do |row|
+CSV.foreach(names_file) do |row|
   name = row[0]
   
   # Members' names will always start with "HON."
@@ -205,7 +200,7 @@ FasterCSV.foreach(names_file) do |row|
 end
 
 
-FasterCSV.open(bioguide_file, "a") do |csv|
+CSV.open(bioguide_file, "a") do |csv|
   names.each do |name, values|
     csv << [values[:bioguide_id], name, values[:name_confirm_from_sunlight], values[:in_office]]
   end

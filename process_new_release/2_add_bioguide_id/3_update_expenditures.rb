@@ -10,14 +10,9 @@ if input_file.nil? or input_file == ""
 end
 
 
-begin
-  require 'fileutils'
-  require 'rubygems'
-  require 'fastercsv'
-rescue
-  puts "Couldn't load dependencies. Try running:\nsudo gem install fastercsv"
-  exit
-end
+require 'fileutils'
+require 'rubygems'
+require 'csv'
 
 [input_file, bioguide_file].each do |f|
   unless File.exists?(f)
@@ -29,7 +24,7 @@ end
 # Read through the bioguide ID CSV and create a hash of names to bioguide_ids
 
 legislators = {}
-FasterCSV.foreach(bioguide_file) do |row|
+CSV.foreach(bioguide_file) do |row|
   # key is name, value is bioguide_id
   if row[0] and row[0] != ""
     legislators[row[1]] = row[0] 
@@ -41,10 +36,10 @@ end
 
 
 FileUtils.rm(output_file) if File.exist? output_file
-FasterCSV.open(output_file, "w") do |csv|
+CSV.open(output_file, "w") do |csv|
   i = 0
   
-  FasterCSV.foreach(input_file) do |row|
+  CSV.foreach(input_file) do |row|
     if row[0] == "OFFICE" # header row
       row.unshift "BIOGUIDE_ID"
     else
