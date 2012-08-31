@@ -20,21 +20,15 @@ unless File.exists?(positions_file)
   exit
 end
 
-begin
-  require 'fileutils'
-  require 'rubygems'
-  require 'fastercsv'
-rescue
-  puts "Couldn't load FasterCSV. Try running \"sudo gem install fastercsv\" and try again."
-  exit
-end
+require 'fileutils'
+require 'csv'
 
 
 i = 0
 
-FasterCSV.open(positions_file, "a") do |positions|
+CSV.open(positions_file, "a") do |positions|
     
-  FasterCSV.foreach(input_file) do |row|
+  CSV.foreach(input_file) do |row|
     category = row[3]
     
     if category.upcase == 'PERSONNEL COMPENSATION'
@@ -44,7 +38,7 @@ FasterCSV.open(positions_file, "a") do |positions|
       bioguide_id = row[0] ? row[0].strip : ''
       office_name = row[1] ? row[1].strip : ''
       
-      if title.any?
+      if title.size > 0
         positions << [name, title, quarter, bioguide_id, office_name]
       else
         puts "[#{i}] No title for #{name}, skipping"

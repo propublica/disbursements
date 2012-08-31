@@ -15,26 +15,20 @@ unless File.exists?(offices_file)
   exit
 end
 
-begin
-  require 'fileutils'
-  require 'rubygems'
-  require 'fastercsv'
-rescue
-  puts "Couldn't load FasterCSV. Try running \"sudo gem install fastercsv\" and try again."
-  exit
-end
+require 'fileutils'
+require 'csv'
 
 offices = []
 
-FasterCSV.foreach(offices_file) do |row|
+CSV.foreach(offices_file) do |row|
   next if row[0] == "OFFICE NAME (ORIGINAL)" # header row of offices.csv
   offices << row[0]
 end
 
 i = 0
-FasterCSV.open(offices_file, "a") do |csv|
+CSV.open(offices_file, "a") do |csv|
   
-  FasterCSV.foreach(positions_file) do |row|
+  CSV.foreach(positions_file) do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)" # header row of positions.csv
     next if row[3] != nil and row[3] != "" # has a bioguide ID, we'll handle them separately
     next if offices.include?(row[4])

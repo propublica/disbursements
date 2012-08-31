@@ -15,26 +15,20 @@ unless File.exists?(titles_file)
   exit
 end
 
-begin
-  require 'fileutils'
-  require 'rubygems'
-  require 'fastercsv'
-rescue
-  puts "Couldn't load FasterCSV. Try running \"sudo gem install fastercsv\" and try again."
-  exit
-end
+require 'fileutils'
+require 'csv'
 
 titles = []
 
-FasterCSV.foreach(titles_file) do |row|
+CSV.foreach(titles_file) do |row|
   next if row[0] == "TITLE (ORIGINAL)" # header row in titles.csv
   titles << row[0]
 end
 
 i = 0
-FasterCSV.open(titles_file, "a") do |csv|
+CSV.open(titles_file, "a") do |csv|
   
-  FasterCSV.foreach(positions_file) do |row|
+  CSV.foreach(positions_file) do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)" # header row in positions.csv
     row[1] ||= ""
     
