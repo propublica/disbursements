@@ -64,6 +64,10 @@ def legislator_for_name(name)
   options[:firstname] = pieces.first
   
   results = Sunlight::Legislator.all_where options
+  if results.nil?
+    raise Exception.new "Error contacting Sunlight API, bailing."
+  end
+
   if results.size == 1
     results.first
   
