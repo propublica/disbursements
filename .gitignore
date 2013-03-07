@@ -2,6 +2,7 @@
 /*.pdf
 /*.csv
 /staffers/*.csv
+/staffers/data/*.csv
 /bioguide_id/all-names.csv
 /process_new_release/2_add_bioguide_id/all-names.csv
 /process_new_release/3_combiner/*.csv
