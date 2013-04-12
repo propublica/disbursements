@@ -2,13 +2,15 @@ This directory scripts to compile House disbursments data, for a separate projec
 
 This process produces 4 CSV files: `positions.csv`, `staffers.csv`, `offices.csv`, and `titles.csv`.
 
-1) Create a "data" folder in this directory, if it does not exist. If you are updating **existing** staffers data, place the most current version of those data files into a folder in this directory named "data".
+1) Create a "data" folder in this directory, if it does not exist. If you are updating existing staffers data, place the most current version of those data files into a folder in this directory named "data".
 
-3) Run each disbursements detail file for *new quarters only* through `1_positions.rb`. If you are updating **existing** staffers data, this will just be the most recent quarter. If you are starting from scratch, run each details file through `1_positions.rb` in turn.
+3) Run each disbursements detail file for **new quarters only** through `1_positions.rb`. If you are updating existing staffers data, this will just be the most recent quarter. If you are starting from scratch, run each details file through `1_positions.rb` in turn.
 
-  ./1_positions.rb [details-filename.csv]
+```bash
+./1_positions.rb [details-filename.csv]
+```
 
-This will blindly append *all* new staff records from the details file (where the category is "PERSONNEL COMPENSATION") to positions.csv.
+This will blindly append **all** new staff records from the details file (where the category is "PERSONNEL COMPENSATION") to positions.csv.
 
 3) Run `2_staffers.rb`. This will extract unique new staffer names from positions.csv (that don't yet appear in staffers.csv), and append them to staffers.csv.
 
