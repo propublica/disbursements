@@ -1,4 +1,6 @@
-This directory scripts to compile House disbursments data, for a separate project, a [searchable directory of House staffers](http://staffers.sunlightfoundation.com/).  The code for that staff directory is separate, at [sunlightlabs/staffers](/sunlightlabs/staffers).
+This directory contains scripts to compile House disbursements data, for a separate project, a [searchable directory of House staffers](http://staffers.sunlightfoundation.com/).  The code for that staff directory is separate, at [sunlightlabs/staffers](/sunlightlabs/staffers).
+
+Ruby 1.9 is required to run these scripts.
 
 This process produces 4 CSV files: `positions.csv`, `staffers.csv`, `offices.csv`, and `titles.csv`.
 
