@@ -5,14 +5,15 @@
 positions_file = "data/positions.csv"
 staffers_file = "data/staffers.csv"
 
+
 unless File.exists?(positions_file)
-  puts "Couldn't locate #{positions_file}. Place it in the same directory as this script."
+  puts "Couldn't locate #{positions_file}. Run 1_positions.rb first to make one."
   exit
 end
 
 unless File.exists?(staffers_file)
-  puts "Couldn't locate #{staffers_file}. Place it in the same directory as this script."
-  exit
+  puts "Couldn't locate #{staffers_file}. Creating a blank one."
+  system "touch #{staffers_file}"
 end
 
 require 'fileutils'

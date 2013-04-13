@@ -5,24 +5,25 @@ input_file = ARGV.first
 # will append blindly to positions.csv
 positions_file = "data/positions.csv"
 
+require 'fileutils'
+FileUtils.mkdir_p "data"
+
 if input_file.nil? or input_file == ""
   puts "Provide the input_file of the CSV file with disbursement details as an argument."
   exit
 end
 
 unless File.exists?(input_file)
-  puts "Couldn't locate #{input_file}. Place it in the same directory as this script."
+  puts "Couldn't locate #{input_file}."
   exit
 end
 
 unless File.exists?(positions_file)
-  puts "Couldn't locate #{positions_file}. Place it in the same directory as this script."
-  exit
+  puts "Couldn't locate #{positions_file}. Creating one now."
+  system "touch #{positions_file}"
 end
 
-require 'fileutils'
 require 'csv'
-
 
 i = 0
 
