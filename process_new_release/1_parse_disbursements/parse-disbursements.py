@@ -10,19 +10,19 @@ Originally authored by Luke Rosiak with improvements by James Turk for Sunlight
 Labs and is released into the public domain.
 
 1) Take a single volume PDF and cut it to just the disbursement pages:
-  
+
   pdftk 2010q1_singlevolume.pdf cat 10-3613 output 2010q1-disbursements-only.pdf
 
 2) Extract the text from this disbursements-only PDF:
-   
+
   pdftotext -layout 2010q1-disbursements-only.pdf
 
 3) Run this script on that text file:
 
-  python parse-disbursements.py 2010q1-disbursments-only.txt
+  python parse-disbursements.py 2010q1-disbursements-only.txt
 
 (The filename's first six characters must represent the quarter it covers.)
-  
+
 '''
 
 
@@ -35,12 +35,12 @@ def known_bad(line):
     return (not line) or BAD_LINE_RE.match(line) or 'dkrause' in line
 
 def main(disbursements_file):
-    
+
     path, filename = os.path.split(disbursements_file)
     year = filename[:4]
     quarter = filename[4:6].upper()
     thisquarter = year + quarter
-    
+
     f = open(disbursements_file, "r")
 
     fsummary = csv.writer(open("%s%s-house-disburse-summary.csv" % (year, quarter), "w"), quoting=csv.QUOTE_ALL)
@@ -122,11 +122,11 @@ def main(disbursements_file):
 
 #less detailed codes, used for newer quarters :(
 'AP': 'Accounts payable',
-'AR': 'Accounts receivable', 
+'AR': 'Accounts receivable',
 'GL': 'General ledger',
 'GL LAW': 'charges for purchase of services for Public Law documentation',
 'GL FRM': 'Interface charge for goods purchased through Framing Office'
- } 
+ }
 
 
     for l in f.readlines():
@@ -134,7 +134,7 @@ def main(disbursements_file):
         # replace UTF-8 minus with normal dash and strip
         # replace smart quotes with regular quotes
         l = l.replace('–','-').replace('″', '"').replace('’', '\'').strip()
-        
+
 
         # new member
         if year_re.match(l):
@@ -229,7 +229,7 @@ def main(disbursements_file):
                 recip = ""
 
             fdetail.writerow([thismem, thisquarter, thiscat, date1, sunrecip, "","", descrip, amount, thisyear, transcode,transcodelong,recordid, recip ])
-            
+
             continue
 
 
