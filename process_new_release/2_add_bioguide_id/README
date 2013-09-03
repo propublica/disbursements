@@ -14,6 +14,8 @@ It assumes that all legislators in the CSV will have their names prepended with 
 
 It assumes that if there is a case of two identically named legislators (i.e. Mike Rogers in Q3 and Q4 of 2009), that the state will be noted in the name field in parentheses, i.e. "HON. MIKE ROGERS (MI)" and "HON. MIKE ROGERS (AL)".
 
+  Note: As of 2012Q3, the Mike Rogers-es have been distinguished by middle initial, so this convention is no longer necessary. Old quarters will still work, however.
+
 
 = Known Mistakes =
 
@@ -23,34 +25,34 @@ Mary Bono Mack is mistaken for Connie Mack.  There's no easy way to correct this
 = Instructions =
 
 1) Place the expenditures CSV in this directory.  Open a terminal in this directory and run:
-    
+
    ruby 1_extract_names.rb [expenditures.csv]
-    
+
    Replace "[expenditures.csv]" with the name of the actual expenditures CSV file. Don't include the brackets.
-   
-2) This will produce a file called all-names.csv, containing a row with every unique name found in the name field of the expenditures CSV. 
+
+2) This will produce a file called all-names.csv, containing a row with every unique name found in the name field of the expenditures CSV.
 
 3) Run this command in the terminal:
 
    ruby 2_assign_bioguide_ids.rb
-   
+
    As this runs, it will print out whenever it can't match a legislator to a bioguide ID, and when it's done it'll print a summary of how many legislators it failed to match.
 
    This will use the existing bioguide_ids.csv as a cache of names it's seen before.
-   
+
 4) This will update bioguide_ids.csv, containing a row with every legislator's name, a bioguide ID,  and then two fields to help verify the work. The first (under the heading "name_confirm_from_sunlight") is the full standardized name of the legislator, including their nickname, of the legislator that the script believed was the match.  The second is whether or not the legislator is currently in office ("TRUE") or not in office ("FALSE").
-   
+
    You need to look over this file and fill in the missing bioguide IDs for rows missing them.  They should be at the bottom. The output of the prior script should have said how many missing bioguide IDs there are.
-   
+
    You should also look for mistakes, such as if the two name columns obviously don't match, and replace the bioguide IDs manually.  Look in the "Known Mistakes" section above for any that you should expect to see.
 
-   
+
 5) Run this command in the terminal:
 
    ruby 3_update_expenditures.rb [expenditures.csv]
-   
+
    Replace "[expenditures.csv]" with the name of the actual expenditures CSV file. Don't include the brackets.
-   
+
 6) This will produce a file called expenditures-updated.csv, which is a copy of the original expenditures CSV, with the bioguide ID column and data prepended to the beginning.  Give it a quick look to make sure everything looks right. You'll probably want to do this twice, once for the summary CSV and once for the detail CSV.
 
 
