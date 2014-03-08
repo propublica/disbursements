@@ -6,6 +6,8 @@ Ruby 1.9 or 2.0 is required to run these scripts.
 
 This process produces 4 CSV files: `positions.csv`, `staffers.csv`, `offices.csv`, and `titles.csv`.
 
+### Process
+
 1. Create a "data" folder in this directory, if it does not exist. If you are updating existing staffers data, place the most current version of those data files into a folder in this directory named "data".
 
 2. Run each disbursements detail file for **new quarters only** through `1_positions.rb`. If you are updating existing staffers data, this will just be the most recent quarter. If you are starting from scratch, run each details file through `1_positions.rb` in turn.
