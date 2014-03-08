@@ -53,15 +53,15 @@ You need to look over this file and fill in the missing bioguide IDs for rows mi
 You should also look for mistakes, such as if the two name columns obviously don't match, and replace the bioguide IDs manually.  Look in the "Known Mistakes" section above for any that you should expect to see.
 
 
-5. Run this command:
+5. For both the `-details` and `-summary` CSV files, run this command:
 
 ```bash
-ruby 3_update_expenditures.rb [expenditures.csv]
+ruby 3_update_expenditures.rb [csv]
 ```
 
-Replace `[expenditures.csv]"` with the name of the actual expenditures CSV file.
+Where `[csv]"` is the actual expenditures CSV file, e.g. `2013Q4-details.csv`.
 
-6. This will produce a file called `expenditures-updated.csv`, which is a copy of the original expenditures CSV, with the bioguide ID column and data prepended to the beginning.  Give it a quick look to make sure everything looks right. You'll probably want to do this twice, once for the summary CSV and once for the detail CSV.
+This will produce `[csv]-updated.csv`, e.g. `2013Q4-details-updated.csv`. It is a copy of the original expenditures CSV, with a bioguide ID column  prepended to the beginning of each row.
 
 
 ### Looking up Bioguide IDs

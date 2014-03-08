@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 input_file = ARGV.first
-output_file = "expenditures-updated.csv"
 bioguide_file = "bioguide_ids.csv"
 
 if input_file.nil? or input_file == ""
@@ -9,6 +8,7 @@ if input_file.nil? or input_file == ""
   exit
 end
 
+output_file = "#{File.basename input_file, ".csv"}-updated.csv"
 
 require 'fileutils'
 require 'rubygems'
@@ -27,7 +27,7 @@ legislators = {}
 CSV.foreach(bioguide_file) do |row|
   # key is name, value is bioguide_id
   if row[0] and row[0] != ""
-    legislators[row[1]] = row[0] 
+    legislators[row[1]] = row[0]
   end
 end
 
@@ -38,7 +38,7 @@ end
 FileUtils.rm(output_file) if File.exist? output_file
 CSV.open(output_file, "w") do |csv|
   i = 0
-  
+
   CSV.foreach(input_file) do |row|
     if row[0] == "OFFICE" # header row
       row.unshift "BIOGUIDE_ID"
@@ -46,13 +46,13 @@ CSV.open(output_file, "w") do |csv|
       name = row[0]
       row.unshift legislators[name]
     end
-    
+
     csv << row
-    
+
     i += 1
     puts "Wrote #{i} rows..." if i % 50000 == 0
   end
-  
+
 end
 
 puts ""
