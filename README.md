@@ -13,7 +13,7 @@ This repository contains various scripts for manipulating the House's expenditur
 
 4. Take the generated CSVs and run them through the Ruby scripts in `process_new_release/2_add_bioguide_id/`, [documented there](process_new_release/2_add_bioguide_id), to add a Bioguide ID column to those CSVs.
 
-5. Publish them to Sunlight's [expenditure reports page](http://sunlightfoundation.com/projects/expenditures).
+5. Publish them to Sunlight's [expenditure reports page](http://sunlightfoundation.com/projects/expenditures). Sunlight staff with appropriate access can publish the CSVs to Amazon S3 with `s3cmd put -P -m text/csv [*.csv] s3://assets.sunlightfoundation.com/expenditures/house/`, and update the page [through the Django CMS](http://sunlightfoundation.com/admin/pages/page/39/).
 
 6. Take the published CSVs and run them through the Ruby scripts in `staffers/`, [documented there](staffers), to generate new CSVs of various staff records (`staffers.csv`, `titles.csv`, `offices.csv`, and `positions.csv`).
 
