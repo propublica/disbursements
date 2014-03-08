@@ -10,9 +10,8 @@ bioguide_file = "bioguide_ids.csv"
 
 require 'fileutils'
 require 'rubygems'
-require 'sunlight'
+require 'congress'
 require 'csv'
-# require 'active_support'
 
 unless File.exists?(names_file)
   puts "Couldn't locate #{names_file}. Place it in the same directory as this script."
@@ -23,7 +22,7 @@ end
 @missed_names = []
 
 @duplicates = 0
-Sunlight::Base.api_key = 'sunlight9'
+Congress.key = 'sunlight9'
 
 # index by name to known bioguide_id
 @known_bioguide_ids = {}
@@ -32,20 +31,33 @@ CSV.foreach(bioguide_file) do |row|
 
   if row[0] and row[0] != "" and row[1] and row[1] != ""# bioguide_id
     @known_bioguide_ids[row[1]] = {
-      :bioguide_id => row[0],
-      :name_confirm_from_sunlight => row[1],
-      :in_office => (row[2] and (row[2] == "true"))
+      bioguide_id: row[0],
+      name_confirm_from_sunlight: row[1],
+      in_office: (row[2] and (row[2] == "true"))
     }
   end
 end
 
+def legislators_for(options)
+  puts "\tAsking for legislators with options:\n\t\t#{options.inspect}"
+  results = Congress.legislators(options).results
+  puts "\tGot #{results.size} results"
+  results
+end
+
+def capitalize(name)
+  return name if name.nil?
+
+  new_name = name.downcase.capitalize
+
+  # handle "Mc" and "Mac" cases
+  new_name = new_name.sub(/^(Ma?c)(\w)/) {$1 + $2.capitalize}
+
+  new_name
+end
 
 def legislator_for_name(name)
   options = {}
-
-  if @known_bioguide_ids[name]
-    return @known_bioguide_ids[name]
-  end
 
   puts "Couldn't find #{name} cached, checking with the Sunlight Labs Congress API..."
 
@@ -59,14 +71,17 @@ def legislator_for_name(name)
   options[:name_suffix] = "#{pieces.pop.gsub(/\./, '')}." if pieces.last =~ /^Jr\.?$/i
   options[:name_suffix] = pieces.pop if pieces.last =~ /^I+$/i
 
-  options[:lastname] = pieces.pop.gsub /,/, ''
+  options[:last_name] = pieces.pop.gsub /,/, ''
+  options[:first_name] = pieces.first
 
-  options[:firstname] = pieces.first
-
-  results = Sunlight::Legislator.all_where options
-  if results.nil?
-    raise Exception.new "Error contacting Sunlight API, bailing."
+  [:name_suffix, :last_name, :first_name].each do |field|
+    options[field] = capitalize options[field]
   end
+
+  # may try later
+  alt_last_name = capitalize pieces.pop
+
+  results = legislators_for options
 
   if results.size == 1
     results.first
@@ -74,28 +89,28 @@ def legislator_for_name(name)
   # no result, could be either the wrong first name, or out of office
   elsif results.size == 0
     # try the name as a nickname first
-    options[:nickname] = options.delete :firstname
+    options[:nickname] = options.delete :first_name
 
-    results = Sunlight::Legislator.all_where options
+    results = legislators_for options
     if results.size == 1
       results.first
 
     # must be out of office then?
     elsif results.size == 0
-      options[:in_office] = 0
+      options[:in_office] = true
 
       # reset to doing firstname first
-      options[:firstname] = options.delete :nickname
+      options[:first_name] = options.delete :nickname
 
-      results = Sunlight::Legislator.all_where options
+      results = legislators_for options
       if results.size == 1
         results.first
 
       elsif results.size == 0
         # try as nickname again, this time out of office
-        options[:nickname] = options.delete :firstname
+        options[:nickname] = options.delete :first_name
 
-        results = Sunlight::Legislator.all_where options
+        results = legislators_for options
         if results.size == 1
           results.first
 
@@ -103,21 +118,21 @@ def legislator_for_name(name)
         # but only if there's only one result amongst both in and out of office legislators
         elsif results.size == 0
           options.delete :nickname
-          options.delete :firstname
+          options.delete :first_name
 
           if legislator = unique_for(options)
             legislator
 
           else
             # finally, try the combo last name
-            options[:lastname] = "#{pieces.pop} #{options[:lastname]}"
+            options[:last_name] = "#{alt_last_name} #{options[:last_name]}"
 
             if legislator = unique_for(options)
               legislator
 
             else
               @misses += 1
-              puts "I GIVE UP. Couldn't match on options: #{options.merge(:pieces => pieces).inspect}"
+              puts "I GIVE UP. Couldn't match on options: #{options.merge(pieces: pieces).inspect}"
               @missed_names << name
               puts "Added name to bottom of bioguide_ids.csv WITHOUT a bioguide_id, match by hand"
             end
@@ -150,12 +165,12 @@ end
 # need a unique result or nothing, across both in and out of office legislators, for the given options
 # this is done for last name only checks
 def unique_for(options)
-  options[:in_office] = 1
-  in_results = Sunlight::Legislator.all_where options
+  options[:in_office] = true
+  in_results = legislators_for options
   return nil if in_results.size > 1
 
-  options[:in_office] = 0
-  out_results = Sunlight::Legislator.all_where options
+  options[:in_office] = false
+  out_results = legislators_for options
 
   if in_results.size == 1 and out_results.size == 0
     in_results.first
@@ -168,10 +183,10 @@ end
 
 def name_for(legislator)
   nickname = legislator.nickname && legislator.nickname != "" ? " \'#{legislator.nickname}\'" : ""
-  firstname = "#{legislator.firstname}#{nickname}"
-  lastname = legislator.name_suffix && legislator.name_suffix != "" ? "#{legislator.lastname} #{legislator.name_suffix}" : legislator.lastname
+  first_name = "#{legislator.first_name}#{nickname}"
+  last_name = legislator.name_suffix && legislator.name_suffix != "" ? "#{legislator.last_name} #{legislator.name_suffix}" : legislator.last_name
 
-  "#{legislator.title}. #{firstname} #{lastname}".upcase
+  "#{legislator.title}. #{first_name} #{last_name}".upcase
 end
 
 
@@ -184,21 +199,19 @@ CSV.foreach(names_file) do |row|
   # Members' names will always start with "HON."
   if name =~ /HON\./
 
-    legislator = legislator_for_name(name)
-    if legislator
-      if legislator.is_a? Sunlight::Legislator
-        names[name] = {
-          :bioguide_id => legislator.bioguide_id,
-          :name_confirm_from_sunlight => name_for(legislator),
-          :in_office => legislator.in_office
-        }
-      elsif legislator.is_a? Hash
-        # do nothing, we have it in bioguide_ids.csv already
 
-        # names[name][:bioguide_id] = legislator[:bioguide_id]
-        # names[name][:name_confirm_from_sunlight] = legislator[:name_confirm_from_sunlight]
-        # names[name][:in_office] = legislator[:in_office]
-      end
+    if legislator = @known_bioguide_ids[name]
+      # do nothing, we have it in bioguide_ids.csv already
+      # names[name][:bioguide_id] = legislator[:bioguide_id]
+      # names[name][:name_confirm_from_sunlight] = legislator[:name_confirm_from_sunlight]
+      # names[name][:in_office] = legislator[:in_office]
+
+    elsif legislator = legislator_for_name(name)
+      names[name] = {
+        bioguide_id: legislator.bioguide_id,
+        name_confirm_from_sunlight: name_for(legislator),
+        in_office: legislator.in_office
+      }
     end
   end
 end

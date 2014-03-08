@@ -7,9 +7,7 @@ This adds a bioguide ID column to the CSV, for the purpose of making it easier t
 
 ### Requirements
 
-Ruby 1.9+, and the `sunlight` gem.
-
-This currently uses the **deprecated** Sunlight Labs Congress API to do the name lookups. The script will need to be updated to use the [new Congress API](http://sunlightlabs.github.io/congress/) or the [underlying bulk data](https://github.com/unitedstates/congress-legislators).
+Ruby 1.9+, and the `congress` gem.
 
 
 ### Assumptions
