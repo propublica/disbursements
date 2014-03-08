@@ -1,31 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-'''
-Converts House Disbursement PDFs into detail and summary CSV files.
-  Source PDFs: http://disbursements.house.gov/
-  Resulting Data: http://www.sunlightfoundation.com/projects/expenditures/
-
-Originally authored by Luke Rosiak with improvements by James Turk for Sunlight
-Labs and is released into the public domain.
-
-1) Take a single volume PDF and cut it to just the disbursement pages:
-
-  pdftk 2010q1_singlevolume.pdf cat 10-3613 output 2010q1-disbursements-only.pdf
-
-2) Extract the text from this disbursements-only PDF:
-
-  pdftotext -layout 2010q1-disbursements-only.pdf
-
-3) Run this script on that text file:
-
-  python parse-disbursements.py 2010q1-disbursements-only.txt
-
-(The filename's first six characters must represent the quarter it covers.)
-
-'''
-
-
 import csv, re, sys, os
 
 BAD_LINE_RE = re.compile('^(Frm|Fmt|Sfmt|Jkt|VerDate|VOUCHER|OFFICIAL\sEXPENSES|MEMBERS\sREPRESENATION\sALLOW|PO|APPS06|PsN:|07:23|M:)')
