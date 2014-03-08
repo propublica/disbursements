@@ -16,7 +16,7 @@ This process produces 4 CSV files: `positions.csv`, `staffers.csv`, `offices.csv
 ./1_positions.rb [details-filename.csv]
 ```
 
-This will blindly append **all** new staff records from the details file (where the category is "PERSONNEL COMPENSATION") to positions.csv.
+This will blindly append **all** new staff records from the details file (where the category is "PERSONNEL COMPENSATION") to `positions.csv`.
 
 3. Run `2_staffers.rb`. This will extract unique new staffer names from positions.csv (that don't yet appear in staffers.csv), and append them to staffers.csv.
 
