@@ -1,11 +1,15 @@
-This is a set of 3 scripts that will take the CSV that Sunlight prepares of the House expenditure reports, and attempt to match up all legislator names to bioguide IDs, for the purpose of making it easier to link expenditure reports to other information about a legislator.
+### Bioguide ID Adder
+
+This is a set of 3 scripts that will take the CSV that Sunlight prepares of the House expenditure reports, and attempt to match up all legislator names to bioguide IDs.
+
+This adds a bioguide ID column to the CSV, for the purpose of making it easier to link expenditure reports to other information about a legislator.
 
 
 ### Requirements
 
-It requires Ruby to be installed, with the "fastercsv" and "sunlight" gems installed.
+Ruby 1.9+, and the `sunlight` gem.
 
-It uses the **deprecated** Sunlight Labs Congress API to do the name lookups. The script will need to be updated to use the [new Congress API](http://sunlightlabs.github.io/congress/) or the [underlying bulk data](https://github.com/unitedstates/congress-legislators).
+This currently uses the **deprecated** Sunlight Labs Congress API to do the name lookups. The script will need to be updated to use the [new Congress API](http://sunlightlabs.github.io/congress/) or the [underlying bulk data](https://github.com/unitedstates/congress-legislators).
 
 
 ### Assumptions
