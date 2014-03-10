@@ -1,11 +1,11 @@
 *.txt
 /*.pdf
 /*.csv
-/staffers/*.csv
-/staffers/data/*.csv
-/staffers/data/*.zip
+/3_staffers/*.csv
+/3_staffers/data/*.csv
+/3_staffers/data/*.zip
 /bioguide_id/all-names.csv
-/process_new_release/2_add_bioguide_id/all-names.csv
-/process_new_release/3_combiner/*.csv
+/2_add_bioguide_id/all-names.csv
+/3_combiner/*.csv
 .~lock*
 /staffers/temp.rb
