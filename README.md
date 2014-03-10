@@ -9,13 +9,13 @@ This repository contains various scripts for manipulating the House's expenditur
 
 2. Chop that PDF off at either end so that it contains strictly pages reflecting actual disbursement records.
 
-3. Extract the text from that PDF, and run it through the Python script in `1_parse_disbursements/`, [documented there](1_parse_disbursements), to generate CSVs.
+3. Extract the text from that PDF, and run it through the Python script in `1_pdf_to_csv/`, [documented there](1_pdf_to_csv), to generate CSVs.
 
 4. Take the generated CSVs and run them through the Ruby scripts in `2_add_bioguide_id/`, [documented there](2_add_bioguide_id), to add a Bioguide ID column to those CSVs.
 
 5. Publish them to Sunlight's [expenditure reports page](http://sunlightfoundation.com/projects/expenditures). Sunlight staff with appropriate access can publish the CSVs to Amazon S3 with `s3cmd put -P -m text/csv [*.csv] s3://assets.sunlightfoundation.com/expenditures/house/`, and update the page [through the Django CMS](http://sunlightfoundation.com/admin/pages/page/39/).
 
-6. Take the **detail CSV only** and run it through the 4 Ruby scripts in `3_staffers/`, [documented there](3_staffers), to generate new CSVs of various staff records (`staffers.csv`, `titles.csv`, `offices.csv`, and `positions.csv`).
+6. Take the **detail CSV only** and run it through the 4 Ruby scripts in `3_extract_staffers/`, [documented there](3_extract_staffers), to generate new CSVs of various staff records (`staffers.csv`, `titles.csv`, `offices.csv`, and `positions.csv`).
 
 7. Take those four CSVs and load them into Sunlight's [House Staff Directory](http://staffers.sunlightfoundation.com/), using the [instructions at sunlightlabs/staffers](https://github.com/sunlightlabs/staffers).
 

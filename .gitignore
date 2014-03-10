@@ -1,11 +1,8 @@
-*.txt
-/*.pdf
-/*.csv
-/3_staffers/*.csv
-/3_staffers/data/*.csv
-/3_staffers/data/*.zip
-/bioguide_id/all-names.csv
+/1_pdf_to_csv/*.txt
+/1_pdf_to_csv/*.csv
+/1_pdf_to_csv/*.pdf
 /2_add_bioguide_id/all-names.csv
-/3_combiner/*.csv
+/3_extract_staffers/*.csv
+/3_extract_staffers/data/*.csv
+/3_extract_staffers/data/*.zip
 .~lock*
-/staffers/temp.rb
