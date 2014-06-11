@@ -8,7 +8,7 @@ This process produces 4 CSV files: `positions.csv`, `staffers.csv`, `offices.csv
 
 ### Process
 
-1. Create a "data" folder in this directory, if it does not exist. If you are updating existing staffers data, place the most current version of those data files into a folder in this directory named "data".
+1. Create a "data" folder in this directory, if it does not exist. If you are updating existing staffers data, place the most current version of those data files into a folder in this directory named "data" and put copies of the details csv files in it. 
 
 2. Run each disbursements detail file for **new quarters only** through `1_positions.rb`. If you are updating existing staffers data, this will just be the most recent quarter. If you are starting from scratch, run each details file through `1_positions.rb` in turn.
 
