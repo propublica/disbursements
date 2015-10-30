@@ -22,7 +22,7 @@ end
 @missed_names = []
 
 @duplicates = 0
-Congress.key = 'sunlight9'
+congress_client = Congress::Client.new('sunlight9')
 
 # index by name to known bioguide_id
 @known_bioguide_ids = {}
@@ -40,7 +40,7 @@ end
 
 def legislators_for(options)
   puts "\tAsking for legislators with options:\n\t\t#{options.inspect}"
-  results = Congress.legislators(options).results
+  results = congress_client.legislators(options).results
   puts "\tGot #{results.size} results"
   results
 end
