@@ -40,7 +40,7 @@ end
 
 def legislators_for(options)
   puts "\tAsking for legislators with options:\n\t\t#{options.inspect}"
-  results = congress_client.legislators(options).results
+  results = @congress_client.legislators(options).results
   puts "\tGot #{results.size} results"
   results
 end
