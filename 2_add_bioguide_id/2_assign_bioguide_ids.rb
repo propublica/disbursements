@@ -22,7 +22,7 @@ end
 @missed_names = []
 
 @duplicates = 0
-congress_client = Congress::Client.new('sunlight9')
+@congress_client = Congress::Client.new('sunlight9')
 
 # index by name to known bioguide_id
 @known_bioguide_ids = {}
