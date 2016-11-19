@@ -121,7 +121,7 @@ def main(disbursements_file):
                 thisyear = l[:4]
             if thismem.endswith("Con."):
                 thismem = thismem[:-4]
-            thismem = thismem.strip()
+            thismem = thismem.strip().replace('--','')
             thisyear = thisyear.strip()
             continue
 
