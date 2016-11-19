@@ -27,12 +27,12 @@ end
 
 i = 0
 CSV.open(offices_file, "a") do |csv|
-  
+
   CSV.foreach(positions_file) do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)" # header row of positions.csv
     next if row[3] != nil and row[3] != "" # has a bioguide ID, we'll handle them separately
     next if offices.include?(row[4])
-    
+
     csv << [row[4], row[4]]
     offices << row[4]
     i += 1
