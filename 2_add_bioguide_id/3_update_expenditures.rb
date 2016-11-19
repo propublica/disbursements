@@ -24,7 +24,7 @@ end
 # Read through the bioguide ID CSV and create a hash of names to bioguide_ids
 
 legislators = {}
-CSV.foreach(bioguide_file) do |row|
+CSV.foreach(bioguide_file, :encoding => 'windows-1251:utf-8') do |row|
   # key is name, value is bioguide_id
   if row[0] and row[0] != ""
     legislators[row[1]] = row[0]

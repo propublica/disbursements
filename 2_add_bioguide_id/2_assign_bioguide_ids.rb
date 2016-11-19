@@ -26,7 +26,7 @@ end
 
 # index by name to known bioguide_id
 @known_bioguide_ids = {}
-CSV.foreach(bioguide_file) do |row|
+CSV.foreach(bioguide_file, :encoding => 'windows-1251:utf-8') do |row|
   next if row[0] == 'bioguide_id' # skip header row
 
   if row[0] and row[0] != "" and row[1] and row[1] != ""# bioguide_id
@@ -62,7 +62,7 @@ def legislator_for_name(name)
   puts "Couldn't find #{name} cached, checking with the Sunlight Labs Congress API..."
 
   # get rid of "HON." prefix and split on spaces
-  pieces = name.gsub(/^HON\.\s?/i, '').split /\s+/
+  pieces = name.gsub(/^HON\.\s?/i, '').gsub('--','').split /\s+/
 
   # might be a state in parentheses at the end
   options[:state] = pieces.pop.gsub(/[\(\)]/, '') if pieces.last =~ /^\([a-zA-Z]+\)$/
@@ -200,7 +200,7 @@ CSV.foreach(names_file) do |row|
   if name =~ /HON\./
 
 
-    if legislator = @known_bioguide_ids[name]
+    if legislator = @known_bioguide_ids[name.gsub('--','')]
       # do nothing, we have it in bioguide_ids.csv already
       # names[name][:bioguide_id] = legislator[:bioguide_id]
       # names[name][:name_confirm_from_sunlight] = legislator[:name_confirm_from_sunlight]
