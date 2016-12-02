@@ -11,7 +11,7 @@ This repository contains various scripts for manipulating the House's expenditur
 
 3. Extract the text from that PDF, and run it through the Python script in [1_pdf_to_csv/](1_pdf_to_csv) to generate CSVs.
 
-4. Take the generated CSVs and run them through the Ruby scripts in [2_add_bioguide_id/](2_add_bioguide_id) to add a Bioguide ID column to those CSVs.
+4. Take the generated CSVs and run them through the Ruby scripts in [2_add_bioguide_id/](2_add_bioguide_id) to add a Bioguide ID column to those CSVs. If you get the `Unquoted fields do not allow \r or \n` error, check `bioguide_ids.csv` and fix any additions.
 
 5. Publish them to Sunlight's [expenditure reports page](http://sunlightfoundation.com/projects/expenditures). Sunlight staff with appropriate access can publish the CSVs to Amazon S3 with `s3cmd put -P -m text/csv [*.csv] s3://assets.sunlightfoundation.com/expenditures/house/`, and update the page [through the Django CMS](http://sunlightfoundation.com/admin/pages/page/39/).
 
