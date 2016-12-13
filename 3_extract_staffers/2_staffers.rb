@@ -28,11 +28,11 @@ end
 
 i = 0
 CSV.open(staffers_file, "a") do |csv|
-  
+
   CSV.foreach(positions_file) do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)"
     next if staffers.include?(row[0])
-    
+
     csv << [row[0], row[0]]
     staffers << row[0]
     i += 1
