@@ -39,7 +39,7 @@ FileUtils.rm(output_file) if File.exist? output_file
 CSV.open(output_file, "w") do |csv|
   i = 0
 
-  CSV.foreach(input_file) do |row|
+  CSV.foreach(input_file, :encoding => 'windows-1251:utf-8') do |row|
     if row[0] == "OFFICE" # header row
       row.unshift "BIOGUIDE_ID"
     else

@@ -19,11 +19,11 @@ end
 puts "Reading #{filename} for names..."
 names = {}
 i = 0
-CSV.foreach(filename) do |row|
+CSV.foreach(filename, :encoding => 'windows-1251:utf-8') do |row|
   name = row[0]
   names[name] ||= 0
   names[name] += 1
-  
+
   i += 1
   puts "Read #{i} rows..." if i % 50000 == 0
 end

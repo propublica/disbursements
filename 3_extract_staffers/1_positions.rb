@@ -29,15 +29,15 @@ i = 0
 
 CSV.open(positions_file, "a") do |positions|
 
-  CSV.foreach(input_file) do |row|
-    category = row[3]
+  CSV.foreach(input_file, :encoding => 'windows-1251:utf-8') do |row|
+    category = row[4]
 
     if category.upcase == 'PERSONNEL COMPENSATION'
-      name = row[5] ? row[5].strip : ''
-      title = row[8] ? row[8].strip : ''
+      name = row[8] ? row[8].strip : ''
+      title = row[11] ? row[11].strip : ''
       quarter = row[2] ? row[2].strip : ''
       bioguide_id = row[0] ? row[0].strip : ''
-      office_name = row[1] ? row[1].strip : ''
+      office_name = row[1] ? row[1].strip.gsub("2017 ","") : ''
 
       office_name = office_name.gsub('--','')
 

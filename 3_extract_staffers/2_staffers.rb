@@ -29,7 +29,7 @@ end
 i = 0
 CSV.open(staffers_file, "a") do |csv|
 
-  CSV.foreach(positions_file) do |row|
+  CSV.foreach(positions_file, :encoding => 'windows-1251:utf-8') do |row|
     next if row[0] == "STAFFER NAME (ORIGINAL)"
     next if staffers.include?(row[0])
 

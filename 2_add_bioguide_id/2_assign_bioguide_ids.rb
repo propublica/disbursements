@@ -62,7 +62,7 @@ def legislator_for_name(name)
   puts "Couldn't find #{name} cached, checking with the Sunlight Labs Congress API..."
 
   # get rid of "HON." prefix and split on spaces
-  pieces = name.gsub(/^HON\.\s?/i, '').gsub('--','').split /\s+/
+  pieces = name.gsub(/201\d HON\.\s?/i, '').gsub('--','').split /\s+/
 
   # might be a state in parentheses at the end
   options[:state] = pieces.pop.gsub(/[\(\)]/, '') if pieces.last =~ /^\([a-zA-Z]+\)$/
@@ -193,8 +193,9 @@ end
 puts "Trying to match up names in #{names_file}..."
 
 names = {}
-CSV.foreach(names_file) do |row|
+CSV.foreach(names_file, :encoding => 'windows-1251:utf-8') do |row|
   name = row[0]
+  name.gsub("2016 ","").gsub("2017 ","")
 
   # Members' names will always start with "HON."
   if name =~ /HON\./
