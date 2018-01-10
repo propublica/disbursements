@@ -22,7 +22,7 @@ end
 @missed_names = []
 
 @duplicates = 0
-@congress_client = Congress::Client.new('sunlight9')
+#@congress_client = Congress::Client.new('sunlight9')
 
 # index by name to known bioguide_id
 @known_bioguide_ids = {}
@@ -39,10 +39,10 @@ CSV.foreach(bioguide_file, :encoding => 'windows-1251:utf-8') do |row|
 end
 
 def legislators_for(options)
-  puts "\tAsking for legislators with options:\n\t\t#{options.inspect}"
-  results = @congress_client.legislators(options).results
-  puts "\tGot #{results.size} results"
-  results
+  #puts "\tAsking for legislators with options:\n\t\t#{options.inspect}"
+  #results = @congress_client.legislators(options).results
+  #puts "\tGot #{results.size} results"
+  #results
 end
 
 def capitalize(name)
@@ -83,59 +83,66 @@ def legislator_for_name(name)
 
   results = legislators_for options
 
-  if results.size == 1
-    results.first
+  if results
 
-  # no result, could be either the wrong first name, or out of office
-  elsif results.size == 0
-    # try the name as a nickname first
-    options[:nickname] = options.delete :first_name
-
-    results = legislators_for options
     if results.size == 1
       results.first
 
-    # must be out of office then?
+    # no result, could be either the wrong first name, or out of office
     elsif results.size == 0
-      options[:in_office] = true
-
-      # reset to doing firstname first
-      options[:first_name] = options.delete :nickname
+      # try the name as a nickname first
+      options[:nickname] = options.delete :first_name
 
       results = legislators_for options
       if results.size == 1
         results.first
 
+      # must be out of office then?
       elsif results.size == 0
-        # try as nickname again, this time out of office
-        options[:nickname] = options.delete :first_name
+        options[:in_office] = true
+
+        # reset to doing firstname first
+        options[:first_name] = options.delete :nickname
 
         results = legislators_for options
         if results.size == 1
           results.first
 
-        # OK, we'll accept a result if it matches on last name only,
-        # but only if there's only one result amongst both in and out of office legislators
         elsif results.size == 0
-          options.delete :nickname
-          options.delete :first_name
+          # try as nickname again, this time out of office
+          options[:nickname] = options.delete :first_name
 
-          if legislator = unique_for(options)
-            legislator
+          results = legislators_for options
+          if results.size == 1
+            results.first
 
-          else
-            # finally, try the combo last name
-            options[:last_name] = "#{alt_last_name} #{options[:last_name]}"
+          # OK, we'll accept a result if it matches on last name only,
+          # but only if there's only one result amongst both in and out of office legislators
+          elsif results.size == 0
+            options.delete :nickname
+            options.delete :first_name
 
             if legislator = unique_for(options)
               legislator
 
             else
-              @misses += 1
-              puts "I GIVE UP. Couldn't match on options: #{options.merge(pieces: pieces).inspect}"
-              @missed_names << name
-              puts "Added name to bottom of bioguide_ids.csv WITHOUT a bioguide_id, match by hand"
+              # finally, try the combo last name
+              options[:last_name] = "#{alt_last_name} #{options[:last_name]}"
+
+              if legislator = unique_for(options)
+                legislator
+
+              else
+                @misses += 1
+                puts "I GIVE UP. Couldn't match on options: #{options.merge(pieces: pieces).inspect}"
+                @missed_names << name
+                puts "Added name to bottom of bioguide_ids.csv WITHOUT a bioguide_id, match by hand"
+              end
             end
+
+          elsif results.size > 0
+            @duplicates += 1
+            puts "Duplicates for options: #{options.inspect}"
           end
 
         elsif results.size > 0
@@ -148,17 +155,17 @@ def legislator_for_name(name)
         puts "Duplicates for options: #{options.inspect}"
       end
 
-    elsif results.size > 0
-      @duplicates += 1
-      puts "Duplicates for options: #{options.inspect}"
+    # duplicate first name and last name of in-office legislator
+      elsif results.size > 0
+        @duplicates += 1
+        puts "Duplicates for options: #{options.inspect}"
+      end
+    else
+      @misses += 1
+      puts "I GIVE UP. Couldn't match on options: #{options.merge(pieces: pieces).inspect}"
+      @missed_names << name
+      puts "Added name to bottom of bioguide_ids.csv WITHOUT a bioguide_id, match by hand"
     end
-
-  # duplicate first name and last name of in-office legislator
-  elsif results.size > 0
-    @duplicates += 1
-    puts "Duplicates for options: #{options.inspect}"
-  end
-
 end
 
 
@@ -195,10 +202,10 @@ puts "Trying to match up names in #{names_file}..."
 names = {}
 CSV.foreach(names_file, :encoding => 'windows-1251:utf-8') do |row|
   name = row[0]
-  name.gsub("2016 ","").gsub("2017 ","")
+#  name.gsub("2016 ","").gsub("2017 ","")
 
   # Members' names will always start with "HON."
-  if name =~ /HON\./
+  if name =~ /201\d HON\./
 
 
     if legislator = @known_bioguide_ids[name.gsub('--','')]
@@ -223,7 +230,7 @@ CSV.open(bioguide_file, "a") do |csv|
     csv << [values[:bioguide_id], name, values[:name_confirm_from_sunlight], values[:in_office]]
   end
 
-  @missed_names.each do |name|
+  @missed_names.uniq.each do |name|
     csv << [nil, name, nil]
   end
 end
