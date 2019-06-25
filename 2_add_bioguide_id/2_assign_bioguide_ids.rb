@@ -10,7 +10,6 @@ bioguide_file = "bioguide_ids.csv"
 
 require 'fileutils'
 require 'rubygems'
-require 'congress'
 require 'csv'
 
 unless File.exists?(names_file)
